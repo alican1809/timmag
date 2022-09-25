@@ -19,7 +19,7 @@
 	<h1>Produits</h1>
 	{% for product in products %}
 		<div>
-			{# <a href="{{ path('app_product' , {'slug' : product.slug }) }}"> #}
+		<a href="{{ path('app_product' , {'slug' : product.slug }) }}">
 				{{product.category}}
 				<img src="/uploads/{{product.illustration}}" alt="">
 

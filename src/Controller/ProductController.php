@@ -11,7 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ProductController extends AbstractController
 {
-    #[Route('/nos-produit', name: 'app_products')]
+    #[Route('/nos-produits', name: 'app_products')]
     public function index(ProductRepository $productRepository, EntityManagerInterface $entityManager): Response
     {
         $products = $productRepository->findAll();
@@ -19,6 +19,25 @@ class ProductController extends AbstractController
         // dd($products);
         return $this->render('product/index.html.twig', [
             'products' => $products
+        ]);
+    }
+
+    
+    #[Route('/produit/{slug}', name: 'app_product')]
+
+    public function show( ProductRepository $productRepository, EntityManagerInterface $entityManager, $slug): Response
+    {
+         $product = $productRepository->findOneBySlug($slug);
+        if (!$product) {
+            //$infoProduct="article indisponible"
+            //a changer///////////////////////////////////////////////////////////////////////////////////////////////////////
+            return $this->redirectToRoute('app_products');
+        }
+
+        return $this->render('product/show.html.twig', [
+            'product' => $product,
+
+            // 'infoProduct' =>$infoProduct
         ]);
     }
 }

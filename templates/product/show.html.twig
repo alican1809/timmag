@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block body %}
+   
+            <img  src="/uploads/{{product.illustration}}" alt="{{product.name}}">
+      
+     
+            <h3>{{product.name}}</h3>
+            <p>{{product.subtitle}}</p>
+           {{(product.price / 100 )|number_format(2,',', '.')}} €
+        
+            <p>{{product.description}}</p>
+       
+     
+ 
+{% endblock %}
