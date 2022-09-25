@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tim Stores - Produits
+{% endblock %}
+
+{% block body %}
+{# 
+	<br>
+	<br>
+	<h1>Filtre</h1>
+	{{form(form)}} #}
+	{% for product in products %}
+
+		<div>
+		</div>
+	{% endfor %}
+	<br>
+	<br>
+	<h1>Produits</h1>
+	{% for product in products %}
+		<div>
+			{# <a href="{{ path('app_product' , {'slug' : product.slug }) }}"> #}
+				{{product.category}}
+				<img src="/uploads/{{product.illustration}}" alt="">
+
+				<div>{{product.name}}</div>
+				{{product.subtitle}}
+				{{product.description}}
+				<div>{{ (product.price/100)|number_format(2,',','.') }}
+					€</div>
+			</a>
+			<a href="#">Ajouter au panier</a>
+
+		</div>
+	{% endfor %}
+
+
+{% endblock %}
