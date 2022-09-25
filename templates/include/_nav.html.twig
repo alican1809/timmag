@@ -1,11 +1,10 @@
 <nav>
-
+<a href="{{ path('app_home') }}">home</a>
    {# <a href="{{ path('app_products') }}">produits</a> #}
 {% if app.user %}
 
     
-   
-    {# <a href="{{ path('app_account') }}">compte</a> #}
+  <a href="{{ path('app_account') }}">compte</a>
      <a href="{{ path('app_logout') }}">deconnexion</a>
 {% else %}
     
