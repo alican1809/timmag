@@ -13,6 +13,6 @@
         
             <p>{{product.description}}</p>
        
-     
+         <a href="{{ path('app_add_cart', {id: product.id}) }}">Ajouter</a>
  
 {% endblock %}

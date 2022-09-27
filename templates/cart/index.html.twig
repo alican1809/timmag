@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CartController!{% endblock %}
+
+{% block body %}
+{{dump(cart)}}
+
+
+
+{% for product in cart %}
+
+    <img src="/uploads/{{product.product.illustration}}" alt="">
+
+{% endfor %}
+
+{% endblock %}
