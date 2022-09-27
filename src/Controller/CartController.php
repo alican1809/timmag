@@ -17,13 +17,20 @@ class CartController extends AbstractController
     {
 
         $cartComplete = [];
+if($cart->get()==null){
 
-        foreach ($cart->get() as $id => $quantity) {
+}else{
+     foreach ($cart->get() as $id => $quantity) {
             $cartComplete[] = [
                 'product' =>  $productRepository->findOneById($id),
-                'quantity' => $quantity,
+                'quantity' => $quantity
             ];
-        };
+    };
+
+}
+
+
+   
 
         return $this->render('cart/index.html.twig', [
             "cart" => $cartComplete

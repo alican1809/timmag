@@ -1,16 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CartController!{% endblock %}
+{% block title %}Hello CartController!
+{% endblock %}
 
 {% block body %}
-{{dump(cart)}}
 
-
-
-{% for product in cart %}
-
-    <img src="/uploads/{{product.product.illustration}}" alt="">
-
-{% endfor %}
-
+	Panier
+{%set total=null %}
+	{% for product in cart %}
+		<img src="/uploads/{{product.product.illustration}}" alt="">
+		<div><a href="{{ path('app_product' , {'slug' : product.product.slug }) }}">{{product.product.name}}</a></div>
+		<div>{{product.product.subtitle}}</div>
+		<div>{{ (product.product.price/100)|number_format(2,',','.') }}€</div>
+		<div>x{{product.quantity}}</div>
+        <div>{{ ((product.product.price*product.quantity)/100)|number_format(2,',','.') }}€</div>
+        {% set total = total+(product.product.price*product.quantity) %}
+    {% endfor %}
+    {{ (total/100)|number_format(2,',','.') }}€
+    {{cart|length}}
+    valider vos produits
 {% endblock %}
