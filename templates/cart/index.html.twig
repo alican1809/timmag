@@ -29,7 +29,7 @@
 				<a href="{{ path('app_delete_cart', {id: product.product.id}) }}">suppPro</a>
 			</div>
 			{% set total = total+(product.product.price*product.quantity) %}
-			{{ dump(product.product.id) }}
+			
 		{% endfor %}
 		{{ (total/100)|number_format(2,',','.') }}€
 		{{cart|length}}
