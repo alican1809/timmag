@@ -16,31 +16,22 @@ class CartController extends AbstractController
     public function index(Cart $cart, EntityManagerInterface $entityManagerInterface, ProductRepository $productRepository): Response
     {
 
-        $cartComplete = [];
-if($cart->get()==null){
+        // $cartComplete = [];
 
-}else{
-     foreach ($cart->get() as $id => $quantity) {
-            $cartComplete[] = [
-                'product' =>  $productRepository->findOneById($id),
-                'quantity' => $quantity
-            ];
-    };
-
-}
-
-
-   
+        // if ($cart->get() == null) {
+        // } else {
+        //     foreach ($cart->get() as $id => $quantity) {
+        //         $cartComplete[] = [
+        //             'product' =>  $productRepository->findOneById($id),
+        //             'quantity' => $quantity
+        //         ];
+        //     };
+        // }
 
         return $this->render('cart/index.html.twig', [
-            "cart" => $cartComplete
+            "cart" => $cart->getFull()
         ]);
     }
-
-
-
-
-
 
 
 
@@ -68,6 +59,33 @@ if($cart->get()==null){
     {
 
         $cart->remove();
+        return $this->redirectToRoute(
+            'app_cart'
+        );
+    }
+
+
+
+
+
+    #[Route('/cart/delete/{id}', name: 'app_delete_cart')]
+    public function delete(Cart $cart, $id): Response
+    {
+
+        $cart->delete($id);
+        return $this->redirectToRoute(
+            'app_cart'
+        );
+    }
+    
+    
+    
+    
+    #[Route('/cart/removeOne/{id}', name: 'app_removeOne_cart')]
+    public function removeOne(Cart $cart, $id): Response
+    {
+
+        $cart->removeOne($id);
         return $this->redirectToRoute(
             'app_cart'
         );

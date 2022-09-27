@@ -6,17 +6,42 @@
 {% block body %}
 
 	Panier
-{%set total=null %}
-	{% for product in cart %}
-		<img src="/uploads/{{product.product.illustration}}" alt="">
-		<div><a href="{{ path('app_product' , {'slug' : product.product.slug }) }}">{{product.product.name}}</a></div>
-		<div>{{product.product.subtitle}}</div>
-		<div>{{ (product.product.price/100)|number_format(2,',','.') }}€</div>
-		<div>x{{product.quantity}}</div>
-        <div>{{ ((product.product.price*product.quantity)/100)|number_format(2,',','.') }}€</div>
-        {% set total = total+(product.product.price*product.quantity) %}
-    {% endfor %}
-    {{ (total/100)|number_format(2,',','.') }}€
-    {{cart|length}}
-    valider vos produits
+	{% if cart|length > 0 %}
+		{%set total=null %}
+		{% for product in cart %}
+			<img src="/uploads/{{product.product.illustration}}" alt="">
+			<div>
+				<a href="{{ path('app_product' , {'slug' : product.product.slug }) }}">{{product.product.name}}</a>
+			</div>
+			<div>{{product.product.subtitle}}</div>
+			<div>{{ (product.product.price/100)|number_format(2,',','.') }}€</div>
+            		<div>
+				<a href="{{ path('app_removeOne_cart', {id: product.product.id}) }}">-</a>
+			</div>
+			<div>x{{product.quantity}}</div>
+
+		<div>
+				<a href="{{ path('app_add_cart', {id: product.product.id}) }}">+</a>
+			</div>
+
+			<div>{{ ((product.product.price*product.quantity)/100)|number_format(2,',','.') }}€</div>
+			<div>
+				<a href="{{ path('app_delete_cart', {id: product.product.id}) }}">suppPro</a>
+			</div>
+			{% set total = total+(product.product.price*product.quantity) %}
+			{{ dump(product.product.id) }}
+		{% endfor %}
+		{{ (total/100)|number_format(2,',','.') }}€
+		{{cart|length}}
+		<div>
+			<a href="{{ path('app_remove_cart') }}">supprimer tou le painier</a>
+		</div>
+		<div>
+			<a href="">valider vos produits</a>
+		</div>
+		
+	{% else %}
+		panier vide
+	{% endif %}
+
 {% endblock %}
