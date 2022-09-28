@@ -1,9 +1,9 @@
-<nav>
+<nav class="navbar">
 <a href="{{ path('app_home') }}">home</a>
 <a href="{{ path('app_products') }}">produits</a>
 
 {% if app.user %}
-
+{% if is_granted("ROLE_ADMIN") %}<a href="{{ path('admin') }}">espace admin</a>{% endif %}
 <a href="{{ path('app_account') }}">compte</a>
 <a href="{{ path('app_logout') }}">deconnexion</a>
 
@@ -13,3 +13,4 @@
 {% endif %}
 <a href="{{ path('app_cart') }}">mon panier</a>
 </nav>
+<div class="navMarg"></div>

@@ -6,31 +6,24 @@
 {% block body %}
 
 	{# <br>
-		<br>
-		<h1>Filtre</h1>
-		{{form(form)}}  #}
-	{% for product in products %}
-
-		<div></div>
-	{% endfor %}
-	<br>
-	<br>
+						<br>
+						<h1>Filtre</h1>
+						{{form(form)}}  #}
 	<h1>Produits</h1>
+	<div class="prodDashboard">
 	{% for product in products %}
-		<div>
-
-			{{product.category}}
-			<a href="{{ path('app_product' , {'slug' : product.slug }) }}">
-				<img src="/uploads/{{product.illustration}}" alt="">
-		</a>
-			<div><a href="{{ path('app_product' , {'slug' : product.slug }) }}">{{product.name}}</a></div>
-			{{product.subtitle}}
-			{{product.description}}
-			<div>{{ (product.price/100)|number_format(2,',','.') }}€</div>
-			<a href="{{ path('app_add_cart', {id: product.id}) }}">Ajouter</a>                 
-			<a href="{{ path('app_product' , {'slug' : product.slug }) }}">detail</a>
+		<div class="product">
+			<div class="prodImg" width="100%"><a width="100%" href="{{ path('app_product' , {'slug' : product.slug }) }}" ><img width="100%"  src="/uploads/{{product.illustration}}" alt="product.name"></a></div>
+			<div class="prodText">
+				<div class="prodName"><a href="{{ path('app_product' , {'slug' : product.slug }) }}">{{product.name}}</a></div>
+				<div class="prodSubtitle troc">{{product.subtitle}}</div>
+				<div class="prodBlock">
+					<div class="addBtn"><a href="{{ path('app_add_cart', {id: product.id}) }}">Ajouter</a></div>
+					<div class="prodPrice">{{ (product.price/100)|number_format(2,',','.') }}€</div>
+				</div>
+			</div>
 		</div>
 	{% endfor %}
-
+	</div>
 
 {% endblock %}

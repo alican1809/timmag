@@ -6,15 +6,17 @@
         <link rel="icon" href="{{ asset('assets/img/tim_icon.svg') }}">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
+            <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
         {% endblock %}
 
         {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
+            <script src="{{ asset('assets/js/app.js') }}"></script>
         {% endblock %}
     </head>
     <body>
+
         {% include "include/_nav.html.twig" %}
-        {% block body %}{% endblock %}
+        <main>
+        {% block body %}{% endblock %}</main>
     </body>
 </html>

@@ -96,8 +96,14 @@ class Cart
         if ($this->get() == null) {
         } else {
             foreach ($this->get() as $id => $quantity) {
+                $productobjet=$this->productRepository->findOneById($id);
+                if (!$productobjet) {
+                   $this->delete($id);
+                   continue;
+                }
+
                 $cartComplete[] = [
-                    'product' => $this->productRepository->findOneById($id),
+                    'product' => $productobjet,
                     'quantity' => $quantity
                 ];
             };
