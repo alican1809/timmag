@@ -29,7 +29,7 @@ class OrderController extends AbstractController
     }
 
 
-    #[Route('/commande/recapitulatif', name: 'app_order_recap')]
+    #[Route('/commande/recapitulatif', name: 'app_order_recap', methods: ['POST'])]
     public function add(Cart $cart, Request $request, EntityManagerInterface $entityManager): Response
     {
         $user = $this->getUser();
@@ -50,7 +50,8 @@ class OrderController extends AbstractController
 
             $entityManager->persist($order);
 
-            foreach ($cart->getFull() as $product) { 
+
+            foreach ($cart->getFull() as $product) {
                 $orderDetails = new OrderDetails();
                 $orderDetails->setMyOrder($order);
                 $orderDetails->setProduct($product['product']->getName());
@@ -58,16 +59,15 @@ class OrderController extends AbstractController
                 $orderDetails->setPrice($product['product']->getPrice());
                 $orderDetails->setTotal($product['product']->getPrice() * $product['quantity']);
                 $entityManager->persist($orderDetails);
-
             }
- 
-            $entityManager->flush();
-        } else {
+
+            // $entityManager->flush();
+            
+            return $this->render('order/add.html.twig', [
+                'cart' => $cart->getFull(),
+                'user' => $user
+            ]);
         }
-
-
-        return $this->render('order/add.html.twig', [
-            'cart' => $cart->getFull()
-        ]);
+        return $this->redirectToRoute('cart');
     }
 }

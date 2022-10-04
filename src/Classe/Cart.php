@@ -83,11 +83,6 @@ class Cart
 
 
 
-
-
-
-
-
     public function getFull()
     {
 
@@ -112,11 +107,5 @@ class Cart
 
        
     }
-
-
-
-
-
-
 
 }
