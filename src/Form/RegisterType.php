@@ -29,6 +29,7 @@ class RegisterType extends AbstractType
                  'attr' => [
                     'placeholder' => 'Saisir votre Nom ici placeholder'
                  ]
+                 
             ])
             ->add('email', EmailType::class,[
                 'label' => 'Adresse mail',

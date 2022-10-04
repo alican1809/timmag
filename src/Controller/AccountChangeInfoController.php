@@ -29,7 +29,7 @@ class AccountChangeInfoController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $old_pwd = $form->get('old_password')->getData();
-
+            
             if ($hasher->isPasswordValid($user, $old_pwd)) {
 
                 $new_pwd = $form->get('new_password')->getData();
@@ -44,10 +44,10 @@ class AccountChangeInfoController extends AbstractController
                 $notification = "Votre mots n'est pas a jour mise à jour retry";
             }
         }
+
         return $this->render('account/changeUserInfo.html.twig', [
             'form' => $form->createView(),
             'forma' => $forma->createView(),
-            
         ]);
     }
 }

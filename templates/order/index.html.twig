@@ -1,12 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CartController!
-{% endblock %}
+{% block title %}Votre Commande{% endblock %}
 
 {% block body %}
+    <h1>Commande</h1>
 
-	Panier
-	{% if cart|length > 0 %}
+<h3>valider les informations</h3>
+
+{{form_start(form, {action:path('app_order_recap') })}}
+{{form_end(form)}}
+
+{% if cart|length > 0 %}
 		{%set total=null %}
 		{% for product in cart %}
 			<img src="/uploads/{{product.product.illustration}}" alt="">
@@ -32,14 +36,7 @@
 			
 		{% endfor %}
 		{{ (total/100)|number_format(2,',','.') }}€
-		{{cart|length}}
-		<div>
-			<a href="{{ path('app_remove_cart') }}">supprimer tou le painier</a>
-		</div>
-		<div>
-			<a href="{{ path('app_order') }}">valider vos produits</a>
-		</div>
-		
+		{{cart|length}}	
 	{% else %}
 		panier vide
 	{% endif %}
