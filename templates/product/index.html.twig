@@ -18,7 +18,7 @@
 				<div class="prodName"><a href="{{ path('app_product' , {'slug' : product.slug }) }}">{{product.name}}</a></div>
 				<div class="prodSubtitle troc">{{product.subtitle}}</div>
 				<div class="prodBlock">
-					<div class="addBtn"><a href="{{ path('app_add_cart', {id: product.id}) }}">Ajouter</a></div>
+					<div class="addBtn btn"><a class="btn" href="{{ path('app_add_cart', {id: product.id}) }}">Ajouter</a></div>
 					<div class="prodPrice">{{ (product.price/100)|number_format(2,',','.') }}€</div>
 				</div>
 			</div>
