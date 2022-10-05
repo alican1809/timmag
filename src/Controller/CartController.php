@@ -16,18 +16,6 @@ class CartController extends AbstractController
     public function index(Cart $cart, EntityManagerInterface $entityManagerInterface, ProductRepository $productRepository): Response
     {
 
-        // $cartComplete = [];
-
-        // if ($cart->get() == null) {
-        // } else {
-        //     foreach ($cart->get() as $id => $quantity) {
-        //         $cartComplete[] = [
-        //             'product' =>  $productRepository->findOneById($id),
-        //             'quantity' => $quantity
-        //         ];
-        //     };
-        // }
-
         return $this->render('cart/index.html.twig', [
             "cart" => $cart->getFull()
         ]);
@@ -36,6 +24,7 @@ class CartController extends AbstractController
 
 
 
+    
     #[Route('/cart/add/{id}', name: 'app_add_cart')]
     public function add(Cart $cart, $id): Response
     {

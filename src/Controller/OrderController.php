@@ -39,17 +39,18 @@ class OrderController extends AbstractController
 
 
         if ($forma->isSubmitted() && $forma->isValid()) {
+            
+            $date = new \DateTimeImmutable();
+
             $a = $forma->getData();
 
-
             $order = new Order();
-            $date = new \DateTimeImmutable();
+            $reference = $date->format('dmY').'-'.uniqid();
+            $order->setReference($reference);
             $order->setUser($this->getUser());
             $order->setCreateAt($date);
-            $order->setIsPaid(0);
 
             $entityManager->persist($order);
-
 
             foreach ($cart->getFull() as $product) {
                 $orderDetails = new OrderDetails();
@@ -58,14 +59,16 @@ class OrderController extends AbstractController
                 $orderDetails->setQuantity($product['quantity']);
                 $orderDetails->setPrice($product['product']->getPrice());
                 $orderDetails->setTotal($product['product']->getPrice() * $product['quantity']);
+                $order->setIsPaid(0);
                 $entityManager->persist($orderDetails);
             }
-
-            // $entityManager->flush();
+            $entityManager->flush();
+          
             
             return $this->render('order/add.html.twig', [
                 'cart' => $cart->getFull(),
-                'user' => $user
+                'user' => $user,
+                'reference' => $order->getReference()
             ]);
         }
         return $this->redirectToRoute('cart');
