@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-     
-        <title>{% block title %}Tim Store - vente de colection{% endblock %}</title>
-        <link rel="icon" href="{{ asset('assets/img/tim_icon.svg') }}">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+	<head>
+		<meta charset="UTF-8">
+
+		<title>
+			{% block title %}Tim Store - vente de colection
+			{% endblock %}
+		</title>
+		<link rel="icon" href="{{ asset('assets/img/tim_icon.svg') }}">
+		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+		{% block stylesheets %}
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+			<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+		{% endblock %}
+		{% block javascript %}
         {% endblock %}
-        {% block javascript %}
-    
-{% endblock %}
 
 
-    
-    </head>
-    <body>
+	</head>
+	<body>
+		{% include "include/_nav.html.twig" %}
+		<main>
+			{% block body %}
+            {% endblock %}
+		</main>
+	</body>
 
-        {% include "include/_nav.html.twig" %}
-        <main>
-        {% block body %}{% endblock %}</main>
-    </body>
-    {% block script %}
-{% endblock %}
 
 </html>

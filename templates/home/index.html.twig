@@ -1,12 +1,107 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tim Store - vente de colection{% endblock %}
+{% block title %}Tim Store - vente de colection
+{% endblock %}
 
 {% block body %}
 
+	<div class="page">
+		<div>
+			<div class="display-time"></div>
+			<div class="timNbr">300 000</div>
+			<div>
+				les TIM un monde ou les legend existe pas</div>
+			<div>
+				pas sur.....</div>
+		</div>
+		<div>
+			<img src="assets/img/acceuil.svg" alt="">
+		</div>
+	</div>
 
-<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<div class="page">
+		<img width="200px" src="assets/img/page_logo.svg" alt="">
+		<div class="titre">
+			<span>Tim</span>Mag</div>
+		<div class="slogan">Decouvrer les<span>Tims</span>a travers leur histoire et la collection en vente ici sur<span>
+				<span>Tim</span>mag</span>
+		</div>
+	</div>
+
+	<div class="page">
+		<div class="h2 btn">top TimRare</div>
+		<div>
+
+				<div class="product">
+					<div class="prodImg" width="100%">
+						<a width="100%" href="{{ path('app_product' , {'slug' : product1.slug }) }}"><img width="100%" src="/uploads/{{product1.illustration}}" alt="product.name"></a>
+					</div>
+					<div class="prodText">
+						<div class="prodName">
+							<a href="{{ path('app_product' , {'slug' : product1.slug }) }}">{{product1.name}}</a>
+						</div>
+						<div class="prodSubtitle troc">{{product1.subtitle}}</div>
+						<div class="prodBlock">
+							<div class="addBtn btn">
+								<a class="btn" href="{{ path('app_add_cart', {id: product1.id}) }}">Ajouter</a>
+							</div>
+							<div class="prodPrice">{{ (product1.price/100)|number_format(2,',','.') }}€</div>
+						</div>
+					</div>
+				</div>
+				<div>
+					<div class="product">
+						<div class="prodImg" width="100%">
+							<a width="100%" href="{{ path('app_product' , {'slug' : product2.slug }) }}"><img width="100%" src="/uploads/{{product2.illustration}}" alt="product.name"></a>
+						</div>
+						<div class="prodText">
+							<div class="prodName">
+								<a href="{{ path('app_product' , {'slug' : product2.slug }) }}">{{product2.name}}</a>
+							</div>
+							<div class="prodSubtitle troc">{{product2.subtitle}}</div>
+							<div class="prodBlock">
+								<div class="addBtn btn">
+									<a class="btn" href="{{ path('app_add_cart', {id: product2.id}) }}">Ajouter</a>
+								</div>
+								<div class="prodPrice">{{ (product2.price/100)|number_format(2,',','.') }}€</div>
+							</div>
+						</div>
+					</div>
+				</div>
+                				<div>
+					<div class="product">
+						<div class="prodImg" width="100%">
+							<a width="100%" href="{{ path('app_product' , {'slug' : product3.slug }) }}"><img width="100%" src="/uploads/{{product3.illustration}}" alt="product.name"></a>
+						</div>
+						<div class="prodText">
+							<div class="prodName">
+								<a href="{{ path('app_product' , {'slug' : product3.slug }) }}">{{product3.name}}</a>
+							</div>
+							<div class="prodSubtitle troc">{{product3.subtitle}}</div>
+							<div class="prodBlock">
+								<div class="addBtn btn">
+									<a class="btn" href="{{ path('app_add_cart', {id: product3.id}) }}">Ajouter</a>
+								</div>
+								<div class="prodPrice">{{ (product3.price/100)|number_format(2,',','.') }}€</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+        <div class="page">
+        
+        	<div class="h2 btn">top TimRare</div>
+        <div>
+        
+        
+        
+        
+        </div>
+        
+        
+        
+        </div>
 
 
-<img src="{{ asset('assets/img/tim_icon.svg') }}" alt="">
-{% endblock %}
+		<script src="{{ asset('assets/js/app.js') }}"></script>
+	{% endblock %}
