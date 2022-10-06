@@ -42,7 +42,7 @@
 						</div>
 						<div class="prodSubtitle troc">{{product1.subtitle}}</div>
 						<div class="prodBlock">
-							<div class="addBtn btn">
+							<div class="btn">
 								<a class="btn" href="{{ path('app_add_cart', {id: product1.id}) }}">Ajouter</a>
 							</div>
 							<div class="prodPrice">{{ (product1.price/100)|number_format(2,',','.') }}€</div>
@@ -60,7 +60,7 @@
 							</div>
 							<div class="prodSubtitle troc">{{product2.subtitle}}</div>
 							<div class="prodBlock">
-								<div class="addBtn btn">
+								<div class="btn">
 									<a class="btn" href="{{ path('app_add_cart', {id: product2.id}) }}">Ajouter</a>
 								</div>
 								<div class="prodPrice">{{ (product2.price/100)|number_format(2,',','.') }}€</div>

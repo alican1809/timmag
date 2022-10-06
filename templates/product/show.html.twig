@@ -1,18 +1,48 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ product.name }}{% endblock %}
+{% block title %}
+	{{ product.name }}
+{% endblock %}
 
 {% block body %}
-   
-            <img  src="/uploads/{{product.illustration}}" alt="{{product.name}}">
+<div class="posShowH1">
+<h1 class="showH1 ">{{ product.name }}</h1>
+</div>
+	<div class="showProduct ">
       
-     
-            <h3>{{product.name}}</h3>
-            <p>{{product.subtitle}}</p>
-           {{(product.price / 100 )|number_format(2,',', '.')}} €
-        
-            <p>{{product.description}}</p>
-       
-         <a href="{{ path('app_add_cart', {id: product.id}) }}">Ajouter</a>
- 
+      <div class="showProdIllust width="100%">
+		   <div class="showProdImg" width="100%">
+		   	<a width="100%" href="{{ path('app_product' , {'slug' : product.slug }) }}">
+               <img  width="100%" src="/uploads/{{product.illustration}}" alt="product.name">
+            </a>
+		   </div>
+         <div class="showProdImgGalerie">
+		   	<a width="100%" href="{{ path('app_product' , {'slug' : product.slug }) }}">
+               <img width="100%" src="/uploads/{{product.illustration}}" alt="product.name">
+            </a>
+		   	<a width="100%" href="{{ path('app_product' , {'slug' : product.slug }) }}">
+               <img width="100%" src="/uploads/{{product.illustration}}" alt="product.name">
+            </a>
+		   </div>
+      </div>
+		<div class="showProdText">
+			<div class="showProdNameSubCat">
+				<div class=" showProdNameSub">
+					<a  class=" showProdName" href="{{ path('app_product' , {'slug' : product.slug }) }}">{{product.name}}</a>
+					<div class="showProdSubtitle showTroc">{{product.subtitle}}</div>
+				</div>
+
+				<div class=" btn showProdCat">
+					<a class="btn" href="{{ path('app_product' , {'slug' : product.slug }) }}">{{product.category}}</a>
+				</div>
+			</div>
+			<div class="showProdDesc">{{product.description}}</div>
+			<div class="showProdBlock">
+				<div class="btn">
+					<a class="btn" href="{{ path('app_add_cart', {id: product.id}) }}">Ajouter</a>
+				</div>
+				<div class="showProdPrice">{{ (product.price/100)|number_format(2,',','.') }}€</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}
