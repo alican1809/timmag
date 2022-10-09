@@ -13,7 +13,9 @@
 	<div class="prodDashboard">
 	{% for product in products %}
 		<div class="product">
-			<div class="prodImg" width="100%"><a width="100%" href="{{ path('app_product' , {'slug' : product.slug }) }}" ><img width="100%"  src="/uploads/{{product.illustration}}" alt="product.name"></a></div>
+			<div class="prodImg" width="100%">
+			<a width="100%" href="{{ path('app_product' , {'slug' : product.slug }) }}" ><img width="100%"  src="/uploads/{{product.illustration}}" alt="product.name"></a>
+			</div>
 			<div class="prodText">
 				<div class="prodName"><a href="{{ path('app_product' , {'slug' : product.slug }) }}">{{product.name}}</a></div>
 				<div class="prodSubtitle troc">{{product.subtitle}}</div>

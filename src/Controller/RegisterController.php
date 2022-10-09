@@ -12,7 +12,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 
-
 class RegisterController extends AbstractController
 {
     #[Route('/inscription', name: 'app_register')]
@@ -27,7 +26,6 @@ class RegisterController extends AbstractController
             
             $user = $form->getData();
             
-
             $password = $user->getPassword();
             $password = $hasher->hashPassword($user,$password);
             $user->setPassword($password);

@@ -37,11 +37,7 @@ class Cart
 
 
 
-    public function get()
-    {
-        $session = $this->requestStack->getSession();
-        return $session->get('cart');
-    }
+
 
 
 
@@ -66,14 +62,17 @@ class Cart
 
 
 
-
-
     public function removeOne($id)
     {
         $session = $this->requestStack->getSession();
+
         $cart = $session->get('cart',[]);
-        if($cart[$id]>1){
+
+
+        if( $cart[$id]>1 ){
+
             $cart[$id]--;
+
         }else{
             unset($cart[$id]);
         }
@@ -83,6 +82,14 @@ class Cart
 
 
 
+
+
+    public function get()
+    {
+        $session = $this->requestStack->getSession();
+        return $session->get('cart');
+    }
+
     public function getFull()
     {
 
@@ -91,7 +98,9 @@ class Cart
         if ($this->get() == null) {
         } else {
             foreach ($this->get() as $id => $quantity) {
+                
                 $productobjet=$this->productRepository->findOneById($id);
+                
                 if (!$productobjet) {
                    $this->delete($id);
                    continue;
@@ -103,6 +112,7 @@ class Cart
                 ];
             };
         }
+
         return $cartComplete;
 
        
