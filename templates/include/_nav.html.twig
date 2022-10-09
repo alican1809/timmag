@@ -7,16 +7,17 @@
 {% if app.user %}
 
 {% if is_granted("ROLE_ADMIN") %}
-<a class="btn navLink" href="{{ path('admin') }}">espace admin</a>{% endif %}
-<a class="btn navLink" href="{{ path('app_cart') }}">mon panier</a>
-<a href="{{ path('app_account') }}"> <img class ="navLogo"src="{{ asset('assets/img/nav_logo_compte.svg') }}" alt=""><div class='btn navlogobtn'>compte</div></a>
+<a class="btn navLink " href="{{ path('admin') }}">espace admin</a>{% endif %}
+<a class="btn navLink " href="{{ path('app_cart') }}">mon panier</a>
+</div>
+<a href="{{ path('app_account') }}"> <img class ="navLogo"src="{{ asset('assets/img/nav_logo_compte.svg') }}" alt=""><div class='btn navlogobtn navLink'>compte</div></a>
 
 
 {% else %}
 
-<a class="btn navLink" href="{{ path('app_register') }}">inscription</a>
-<a class="btn navLink" href="{{ path('app_login') }}">connexion</a>
-<a class="btn navLink" href="{{ path('app_cart') }}">mon panier</a>
+<a class="btn navLink " href="{{ path('app_register') }}">inscription</a>
+<a class="btn navLink " href="{{ path('app_login') }}">connexion</a>
+<a class="btn navLink " href="{{ path('app_cart') }}">mon panier</a>
 
 {% endif %}
 

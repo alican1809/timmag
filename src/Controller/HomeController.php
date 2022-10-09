@@ -22,6 +22,7 @@ class HomeController extends AbstractController
             "product1"=>$products[0],
             "product2"=>$products[2],
             "product3"=>$products[3],
+            "products"=>$products
         ]);
     }
 

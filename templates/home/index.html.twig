@@ -8,19 +8,45 @@
 	<div class="homeContent1">
 		<div class="homeText">
 			<div class=" homeTime display-time"></div>
-			<div class="homeTimNbr">300 000</div>
+			<div class="homeTimNbr">300 000<span id="homeSubText">a collectioné</span>
+			</div>
 			<div id="homeSubText">
 				les
 				<span class="homeSubTextSpan">TIM</span>
-				un monde ou les
-				<span class="homeSubTextSpan">legendes
+				un monde ou une
+				<span class="homeSubTextSpan">legende
 				</span>
-				n'existes pas</div>
+				?!
+			</div>
 			<div>
 				pas sur.....</div>
 		</div>
+				
 		<div class="homeImg">
-			<img class="homeContent1Img" src="assets/img/acceuil.svg" alt="">
+	<div class="homeH2 btn rot"> NosProduis</div>
+		<div class="productscrollbar">
+
+			{% for product in products %}
+				<div class="product ">
+					<div class="prodImg" width="100%">
+						<a width="100%" href="{{ path('app_product' , {'slug' : product.slug }) }}"><img width="100%" src="/uploads/{{product.illustration}}" alt="product.name"></a>
+					</div>
+					<div class="prodText">
+						<div class="prodName">
+							<a href="{{ path('app_product' , {'slug' : product.slug }) }}">{{product.name}}</a>
+						</div>
+						<div class="prodSubtitle troc">{{product.subtitle}}</div>
+						<div class="prodBlock">
+							<div class="addBtn btn">
+								<a class="btn" href="{{ path('app_add_cart', {id: product.id}) }}">Ajouter</a>
+							</div>
+							<div class="prodPrice">{{ (product.price/100)|number_format(2,',','.') }}€</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+		<img class="homeContent1Img" src="assets/img/acceuil.svg" alt="">
 		</div>
 	</div>
 
@@ -44,7 +70,7 @@
 		<div class="homeTopTim">
 			<div class="homeTopProduct1 product">
 				<div class="prodImg" width="100%">
-					<a width="100%" href="{{ path('app_product' , {'slug' : product1.slug }) }}"><img width="100%" height= "250px"src="/uploads/{{product1.illustration}}" alt="product.name"></a>
+					<a width="100%" href="{{ path('app_product' , {'slug' : product1.slug }) }}"><img width="100%" height="250px" src="/uploads/{{product1.illustration}}" alt="product.name"></a>
 				</div>
 				<div class=" homeProdtext prodText">
 					<div class=" prodName">
@@ -78,7 +104,7 @@
 						</div>
 					</div>
 				</div>
-								<div class="product">
+				<div class="product">
 					<div class="prodImg" width="100%">
 						<a width="100%" href="{{ path('app_product' , {'slug' : product2.slug }) }}"><img width="100%" src="/uploads/{{product2.illustration}}" alt="product.name"></a>
 					</div>
@@ -95,7 +121,7 @@
 						</div>
 					</div>
 				</div>
-								<div class="product">
+				<div class="product">
 					<div class="prodImg" width="100%">
 						<a width="100%" href="{{ path('app_product' , {'slug' : product2.slug }) }}"><img width="100%" src="/uploads/{{product2.illustration}}" alt="product.name"></a>
 					</div>
@@ -112,7 +138,7 @@
 						</div>
 					</div>
 				</div>
-								<div class="product">
+				<div class="product">
 					<div class="prodImg" width="100%">
 						<a width="100%" href="{{ path('app_product' , {'slug' : product2.slug }) }}"><img width="100%" src="/uploads/{{product2.illustration}}" alt="product.name"></a>
 					</div>
@@ -129,7 +155,7 @@
 						</div>
 					</div>
 				</div>
-								<div class="product">
+				<div class="product">
 					<div class="prodImg" width="100%">
 						<a width="100%" href="{{ path('app_product' , {'slug' : product2.slug }) }}"><img width="100%" src="/uploads/{{product2.illustration}}" alt="product.name"></a>
 					</div>
@@ -146,7 +172,7 @@
 						</div>
 					</div>
 				</div>
-								<div class="product">
+				<div class="product">
 					<div class="prodImg" width="100%">
 						<a width="100%" href="{{ path('app_product' , {'slug' : product2.slug }) }}"><img width="100%" src="/uploads/{{product2.illustration}}" alt="product.name"></a>
 					</div>
@@ -187,7 +213,7 @@
 	<div class="homeContent4">
 		<h2 class="homeH2 btn">top TimRare</h2>
 
-<img width="100%" src="{{asset("assets/img/radomTim.svg")}}" alt="">
+		<img width="100%" src="{{asset("assets/img/radomTim.svg")}}" alt="">
 
 		<script src="{{ asset('assets/js/app.js') }}"></script>
 
