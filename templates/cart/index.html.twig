@@ -11,22 +11,22 @@
 		{% for product in cart %}
 			<img src="/uploads/{{product.product.illustration}}" alt="">
 			<div>
-				<a href="{{ path('app_product' , {'slug' : product.product.slug }) }}">{{product.product.name}}</a>
+				<a class="btn" href="{{ path('app_product' , {'slug' : product.product.slug }) }}">{{product.product.name}}</a>
 			</div>
 			<div>{{product.product.subtitle}}</div>
 			<div>{{ (product.product.price/100)|number_format(2,',','.') }}€</div>
             		<div>
-				<a href="{{ path('app_removeOne_cart', {id: product.product.id}) }}">-</a>
+				<a class="btn"href="{{ path('app_removeOne_cart', {id: product.product.id}) }}">-</a>
 			</div>
 			<div>x{{product.quantity}}</div>
 
 		<div>
-				<a href="{{ path('app_add_cart', {id: product.product.id}) }}">+</a>
+				<a class="btn" href="{{ path('app_add_cart', {id: product.product.id}) }}">+</a>
 			</div>
 
 			<div>{{ ((product.product.price*product.quantity)/100)|number_format(2,',','.') }}€</div>
 			<div>
-				<a href="{{ path('app_delete_cart', {id: product.product.id}) }}">suppPro</a>
+				<a class="btn" href="{{ path('app_delete_cart', {id: product.product.id}) }}">suppPro</a>
 			</div>
 			{% set total = total+(product.product.price*product.quantity) %}
 			
@@ -34,14 +34,14 @@
 		{{ (total/100)|number_format(2,',','.') }}€
 		{{cart|length}}
 		<div>
-			<a href="{{ path('app_remove_cart') }}">supprimer tou le painier</a>
+			<a class="btn" href="{{ path('app_remove_cart') }}">supprimer tou le painier</a>
 		</div>
 		<div>
-			<a href="{{ path('app_order') }}">valider vos produits</a>
+			<a class="btn"  href="{{ path('app_order') }}">valider vos produits</a>
 		</div>
 		
 	{% else %}
 		panier vide
 	{% endif %}
-
+<a class="btn" href="{{ path('app_home') }}">retour a l Acueil</a>
 {% endblock %}
