@@ -1,3 +1,7 @@
+
+@import url("stylephone.css"); 
+
+
 * {
     padding: 0;
     margin: 0;
@@ -111,28 +115,10 @@ main {
     font-size: 1.5rem;
 }
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 825) {
-*{background-color: rgba(0, 0, 0, 0.377);}
-
-
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 825px) {
-
-
-
-}
-
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
 
 
 
 
-}
 /*------------------------footer--------------------*/
 
 
@@ -315,6 +301,7 @@ main {
 }
 
 
+
 .display-time {
     font-size: 3rem;
 
@@ -345,12 +332,14 @@ main {
 
 .homeText {
     width: 100%;
+    margin: 10px  0 0 0;
 }
+
+
 
 .homeImg {
     display: flex;
-    
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 .homeContent1Img {
@@ -442,46 +431,3 @@ main {
 
 
 
-
-
-
-
-
-
-
-
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 850px) {
-
-
-    .homeImg {
-        display: flex;
-        flex-direction: column !important;
-        justify-content: flex-end;
-    }
-    .rot{
-        font-size: 1.5rem;
-        rotate:0deg;
-        align-self: center;
-        margin-bottom: 0 !important;
-    }
-
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 850px) {
-
-
-
-
-}
-
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-
-
-
-
-}
