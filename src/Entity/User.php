@@ -35,15 +35,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $lastname = null;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Address::class)]
-    private Collection $addresses;
+    
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Order::class)]
     private Collection $orders;
 
     public function __construct()
     {
-        $this->addresses = new ArrayCollection();
+
         $this->orders = new ArrayCollection();
     }
 
@@ -142,36 +141,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setLastname(string $lastname): self
     {
         $this->lastname = $lastname;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Address>
-     */
-    public function getAddresses(): Collection
-    {
-        return $this->addresses;
-    }
-
-    public function addAddress(Address $address): self
-    {
-        if (!$this->addresses->contains($address)) {
-            $this->addresses->add($address);
-            $address->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAddress(Address $address): self
-    {
-        if ($this->addresses->removeElement($address)) {
-            // set the owning side to null (unless already changed)
-            if ($address->getUser() === $this) {
-                $address->setUser(null);
-            }
-        }
 
         return $this;
     }
