@@ -337,7 +337,9 @@ main {
 }
 
 .homeContent1Img {
-    max-width: 100%;
+  
+        width: 800px;
+
 }
 
 /*---- content2--------*/
@@ -419,20 +421,20 @@ main {
 }
 .homeH2{
     font-size: 1.5rem;
-    width: fit-content;
-    margin-bottom: 100px;
+    width: 300px;
+    margin-bottom: 50px;
 }
 
 
 .animTimFly{
-    background-color: rgba(255, 4, 4, 0.09);
+
     height: 400px;
     width: 100%;
     overflow: hidden;
     position: relative;
 }
 .animImgTim{
-    background-color: rgba(0, 0, 0, 0.09);
+  
     position: absolute;
     transform: translate3d(
         -10vw,0,0
