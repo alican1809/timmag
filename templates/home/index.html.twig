@@ -66,8 +66,8 @@
 
 				{% for product in products %}
 					<div class="product ">
-						<div class="prodImg" width="100%">
-							<a width="100%" href="{{ path('app_product' , {'slug' : product.slug }) }}"><img width="100%" src="/uploads/{{product.illustration}}" alt="product.name"></a>
+						<div class="prodImg " width="100%">
+							<a class="aherfTim" width="100%" href="{{ path('app_product' , {'slug' : product.slug }) }}"><img class="imgTim" width="100%" src="/uploads/{{product.illustration}}" alt="product.name"></a>
 						</div>
 						<div class="prodText">
 							<div class="prodName">
@@ -80,8 +80,9 @@
 								</div>
 								<div class="prodPrice">{{ (product.price/100)|number_format(2,',','.') }}€</div>
 							</div>
+							
 						</div>
-					</div>
+					</div><div class="hidden" >{{product.category.id}}</div>
 				{% endfor %}
 			</div>
 		</div>
@@ -89,11 +90,14 @@
 </div>
 <div class="space"></div>
 <div class="homeContent4">
-	<h2 class="homeH2 btn">top TimRare</h2>
+	<h2 class="homeH2 btn">sky</h2>
+<div class="animTimFly"></div>
+<div id="test">
 
+</div>
 	<img width="100%" src="{{asset("assets/img/radomTim.svg")}}" alt="">
 
-	<script src="{{ asset('assets/js/app.js') }}"></script>
+	
 
 
 {% endblock %}
