@@ -3,11 +3,11 @@
 {% block title %}Tim Store - Modifcaton profile{% endblock %}
 
 {% block body %}
-    <h1>Modifcaton profil</h1>
+    <h1>Modifcaton profil</h1> <p>{{ notif }}</p>
     <p> {{app.user.firstname}} {{app.user.lastname}}</p>
    
  {{form(form)}} 
- {{form(forma)}} 
+ {{form(forma)}}  
     <a class="btn"href="{{ path('app_account') }}">retour a mon compte</a>
     {# timme avheter visuel#}
     {# menu liste des possiblité #}
