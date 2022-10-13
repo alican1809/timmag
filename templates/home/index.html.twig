@@ -5,99 +5,103 @@
 
 {% block body %}
 
-<div class="homeContent1">
-	<div class="homeText">
-		<div class=" homeTime display-time"></div>
-		<div class="homeTimNbr">300 000<span id="homeSubText">
-				à collectioné</span>
-		</div>
-		<div id="homeSubText">
-			les
-			<span class="homeSubTextSpan">TIM</span>
-			un monde ou une
-			<span class="homeSubTextSpan">légende
-			</span>
-			?!
-		</div>
-		<div>
-			pas sur.....</div>
-	</div>
-	<div class="homeImg">
-		<img class="homeContent1Img" src="assets/img/acceuil.svg" alt="">
-	</div>
-</div>
+	<div class="homeContent1">
+<div class=" homeTime display-time"></div>
+		<div class="homeText">
+			
 
-<div class="space"></div>
 
-<div class="homeContent2">
-	<img width="200px" src="assets/img/page_logo.svg" alt="">
-	<div class="homeTitle">
-		<span class="homeTitleSpan">Tim</span>Mag
-	</div>
-	<div class="homeSlogan">Découvrez les
-		<span class="homeSloganSpan1">Tims</span>
-		à travers leur histoire et la collection en vente ici sur<span class="homeSloganSpan">
-			<span class="homeSloganSpan1">Tim</span>Mag</span>
-	</div>
-</div>
-
-<div class="space"></div>
-
-<div class="homeContent3">
-	<div class="homeH2 btn">Tim le plus rare</div>
-	<div class="homeTopTim">
-		<div class="homeTopProduct1 product">
-			<div class="prodImg" width="100%">
-				<a width="100%" href="{{ path('app_product' , {'slug' : product1.slug }) }}"><img width="100%"
-						height="250px" src="/uploads/{{product1.illustration}}" alt="product.name"></a>
-			</div>
-			<div class=" homeProdtext prodText">
-				<div class=" prodName">
-					<a href="{{ path('app_product' , {'slug' : product1.slug }) }}">{{product1.name}}</a>
-				</div>
-				<div class="prodSubtitle troc">{{product1.subtitle}}</div>
-				<div class="homeProdDesc">{{product1.description}}</div>
-				<div class="prodBlock">
-					<div class="btn">
-						<a class="btn" href="{{ path('app_add_cart', {id: product1.id}) }}">Ajouter</a>
-					</div>
-					<div class="prodPrice">{{ (product1.price/100)|number_format(2,',','.') }}€</div>
-				</div>
+			
+			<div id="homeSubText">
+				Site d'achat de
+				<span class="homeSubTextSpan">TIM</span>
+				à collectionné
+			</div><div class="homeTimNbr">300 000
+				<span id="homeSubText"><span class="homeSubTextSpan">TIM</span> à venir
+				</span>
 			</div>
 		</div>
-		<div class="productscrollbar">
-			{% for product in products %}
-			<div class="product ">
-				<div class="prodImg " width="100%">
-					<a class="aherfTim" width="100%" href="{{ path('app_product' , {'slug' : product.slug }) }}">
-						<img class="imgTim" width="100%" src="/uploads/{{product.illustration}}" alt="product.name">
-					</a>
+		<div class="homeImg">
+			<img class="homeContent1Img" src="assets/img/acceuil.svg" alt="">
+		</div>
+	</div>
+
+	<div class="space"></div>
+
+	<div class="homeContent2">
+		<img width="200px" src="assets/img/page_logo.svg" alt="">
+		<div class="homeTitle">
+			<span class="homeTitleSpan">Tim</span>Mag
+		</div>
+		<div class="homeSlogan">Découvrez les
+			<span class="homeSloganSpan1">Tims</span>
+			à travers leur histoire et la collection en vente ici sur<span class="homeSloganSpan">
+				<span class="homeSloganSpan1">Tim</span>Mag</span>
+		</div>
+	</div>
+
+	<div class="space"></div>
+<div class="homeH2 btn">Tim le plus rare</div>
+		<p>Timmage vente des animation numerique a collectionné dans sont espace commpte</p>
+		<div class="space"></div>
+	<div class="homeContent3">
+		<div class="homeH2 btn">Tim le plus rare</div>
+		<p class="homeSlogan">Le tim universel est presenter ici.</p>
+		<div class="homeTopTim">
+			<div class="homeTopProduct1 product">
+				<div class="prodImg" width="100%">
+					<a width="100%" href="{{ path('app_product' , {'slug' : product1.slug }) }}"><img width="100%" height="250px" src="/uploads/{{product1.illustration}}" alt="product.name"></a>
 				</div>
-				<div class="prodText">
-					<div class="prodName">
-						<a href="{{ path('app_product' , {'slug' : product.slug }) }}">{{product.name}}</a>
+				<div class=" homeProdtext prodText">
+					<div class=" prodName">
+						<a href="{{ path('app_product' , {'slug' : product1.slug }) }}">{{product1.name}}</a>
 					</div>
-					<div class="prodSubtitle troc">{{product.subtitle}}</div>
+					<div class="prodSubtitle troc">{{product1.subtitle}}</div>
+					<div class="homeProdDesc">{{product1.description}}</div>
 					<div class="prodBlock">
-						<div class="addBtn btn">
-							<a class="btn" href="{{ path('app_add_cart', {id: product.id}) }}">Ajouter</a>
+						<div class="btn">
+							<a class="btn" href="{{ path('app_add_cart', {id: product1.id}) }}">Ajouter</a>
 						</div>
-						<div class="prodPrice">{{ (product.price/100)|number_format(2,',','.') }}€</div>
+						<div class="prodPrice">{{ (product1.price/100)|number_format(2,',','.') }}€</div>
 					</div>
-
 				</div>
 			</div>
-			<div class="hidden">{{product.category.id}}</div>
-			{% endfor %}
+			<div class="productscrollbar">
+				{% for product in products %}
+					<div class="product ">
+						<div class="prodImg " width="100%">
+							<a class="aherfTim" width="100%" href="{{ path('app_product' , {'slug' : product.slug }) }}">
+								<img class="imgTim" width="100%" src="/uploads/{{product.illustration}}" alt="product.name">
+							</a>
+						</div>
+						<div class="prodText">
+							<div class="prodName">
+								<a href="{{ path('app_product' , {'slug' : product.slug }) }}">{{product.name}}</a>
+							</div>
+							<div class="prodSubtitle troc">{{product.subtitle}}</div>
+							<div class="prodBlock">
+								<div class="addBtn btn">
+									<a class="btn" href="{{ path('app_add_cart', {id: product.id}) }}">Ajouter</a>
+								</div>
+								<div class="prodPrice">{{ (product.price/100)|number_format(2,',','.') }}€</div>
+							</div>
+
+						</div>
+					</div>
+					<div class="hidden">{{product.category.id}}</div>
+				{% endfor %}
+			</div>
 		</div>
 	</div>
-</div>
 
-<div class="space"></div>
+	<div class="space"></div>
 
-<div class="homeContent4">
-	<h2 class="homeH2 btn">sky</h2>
-	<div class="animTimFly"></div>
-</div>
+	<div class="homeContent4">
+		<h2 class="homeH2 btn">Produit Tim</h2>
+		<p class="homeSlogan">La parade des tims en vente
+		</p>
+		<div class="animTimFly"></div>
+		<p class="homeSlogan">Vous pouvez selectionné le tim qui vous convient,pour avoir acces au information detailé de chaque tim.</p>
+	</div>
 
 {% endblock %}

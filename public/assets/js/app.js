@@ -1,3 +1,5 @@
+/*------------animation home time volant----------------------------*/
+
 const heure = document.querySelector(".display-time");
 
 function showTime() {
@@ -8,22 +10,21 @@ function showTime() {
 
 showTime();
 
+/*----------------------------------------------------------------------*/
 
 
 
+
+/*------------animation home time volant----------------------------*/
 
 
 var imgTim = document.querySelectorAll(".imgTim");
-console.log(imgTim)
 
 var nbrImgTim = imgTim.length;
-console.log(nbrImgTim)
 
 var aherfTim = document.querySelectorAll(".aherfTim");
-console.log(aherfTim)
 
 var animTimFly = document.querySelector(".animTimFly");
-console.log(animTimFly)
 
 var max = 200;
 var min = 125;
@@ -50,18 +51,16 @@ for (let i = 0; i < nbrProduct; i++) {
   animImgTim.setAttribute("src", srcImgTim);
   animImgTim.setAttribute("class", "animImgTim");
   animImgTim.style.animationDuration = Math.random() * 10 + 8 + 's';
-  console.log(animImgTim)
 
   var animAhrefTim = document.createElement("a");
   var aTim = aherfTim[i].getAttribute("href");
 
   animAhrefTim.setAttribute("href", aTim);
   animAhrefTim.setAttribute("class", "animAhrefTim");
-  console.log(animAhrefTim)
 
   animAhrefTim.appendChild(animImgTim);
   animTimFly.appendChild(animAhrefTim);
 }
 
 
-
+/*------------------------------------------------------------------------------*/

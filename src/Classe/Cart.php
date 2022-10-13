@@ -18,6 +18,8 @@ class Cart
         $this->productRepository = $productRepository;
 
     }
+/*-----------------crud session cart---------------------------------------*/
+
 
     public function add($id)
     {
@@ -35,21 +37,11 @@ class Cart
     }
 
 
-
-
-
-
-
-
-
-
     public function remove()
     {
         $session = $this->requestStack->getSession();
         return $session->remove('cart');
     }
-
-
 
 
     public function delete($id)
@@ -59,8 +51,6 @@ class Cart
         unset($cart[$id]);
         return $session->set('cart',$cart);
     }
-
-
 
     public function removeOne($id)
     {
@@ -79,10 +69,6 @@ class Cart
 
         return $session->set('cart',$cart);
     }
-
-
-
-
 
     public function get()
     {
@@ -114,8 +100,7 @@ class Cart
         }
 
         return $cartComplete;
-
        
     }
-
+/*---------------------------------------------------------------------------------*/
 }

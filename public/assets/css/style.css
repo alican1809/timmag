@@ -198,7 +198,7 @@ main {
     bottom: 0;
     margin-top: 200px;
     padding: 0 50px;
- 
+
     left: 0;
     color: white;
 
@@ -387,10 +387,13 @@ main {
 
 .homeTimNbr {
     font-size: 5rem;
+    text-align: center;
+
 }
 
 #homeSubText {
     font-size: 3rem;
+    text-align: center;
 }
 
 .homeSubTextSpan {

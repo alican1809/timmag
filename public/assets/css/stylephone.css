@@ -1,8 +1,8 @@
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-    .navbar{
-        background-color: rgb(40, 40, 218) !important;
-    }
+  .text{
+    font-size: 120%;
+  }
     
 }
 
