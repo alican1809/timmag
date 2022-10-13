@@ -18,8 +18,6 @@ class StripeController extends AbstractController
     #[Route('/commande/create-session/{reference}', name: 'app_stripe_create_session')]
     public function index(Cart $cart, EntityManagerInterface $entityManager, $reference): Response
 
-
-
     {
 
         $product_for_stripe=[];
@@ -27,7 +25,7 @@ class StripeController extends AbstractController
         $YOUR_DOMAIN = 'http://localhost:8000';
 
         $order=$entityManager->getRepository(Order::class)->findOneByReference($reference);
-
+      
         if(!$order){
             new JsonResponse(['erro' => 'order']);
          }
@@ -58,13 +56,15 @@ class StripeController extends AbstractController
             'customer_email' => $this->getUser()->getEmail(),
             'line_items' => [$product_for_stripe],
             'mode' => 'payment',
-            'success_url' => $YOUR_DOMAIN . '/commande/merci/{CHECKOUT_SESSION_ID}',
-            'cancel_url' => $YOUR_DOMAIN . '/commande/errur/{CHECKOUT_SESSION_ID}',
+            'success_url' => $YOUR_DOMAIN . '/success.html',
+            'cancel_url' => $YOUR_DOMAIN . '/cancel.html',
         ]);
 
-        $reponse = new JsonResponse(['id' =>$checkout_session->id]);
+        $order->setStripeSessionId($checkout_session->id);
+        $entityManager->flush();
 
-        return $reponse;
+        $reponse = new JsonResponse(['id' =>$checkout_session->id]);
+        return $reponse; 
 
     }
 }

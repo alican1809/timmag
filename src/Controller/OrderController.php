@@ -45,7 +45,9 @@ class OrderController extends AbstractController
             $a = $forma->getData();
 
             $order = new Order();
+           
             $reference = $date->format('dmY').'-'.uniqid();
+            
             $order->setReference($reference);
             $order->setUser($this->getUser());
             $order->setCreateAt($date);
