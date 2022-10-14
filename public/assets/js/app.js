@@ -15,15 +15,13 @@ showTime();
 
 
 
-/*------------animation home time volant----------------------------*/
+/*------------ animation home time parade ----------------------------*/
 
 
 var imgTim = document.querySelectorAll(".imgTim");
-
 var nbrImgTim = imgTim.length;
 
 var aherfTim = document.querySelectorAll(".aherfTim");
-
 var animTimFly = document.querySelector(".animTimFly");
 
 var max = 200;
@@ -31,14 +29,14 @@ var min = 125;
 var maxTop = 0;
 var minTop = 50;
 
-
 var nbrProduct = aherfTim.length;
+
 if (nbrProduct > 15) {
   nbrProduct = 10
 }
 
-
 for (let i = 0; i < nbrProduct; i++) {
+
   var nbrRandomHeight = Math.floor(Math.random() * (max - min) + min) + "px";
   var nbrRandomTop = Math.floor(Math.random() * (maxTop - minTop) + minTop) + "%";
 
@@ -60,6 +58,7 @@ for (let i = 0; i < nbrProduct; i++) {
 
   animAhrefTim.appendChild(animImgTim);
   animTimFly.appendChild(animAhrefTim);
+
 }
 
 

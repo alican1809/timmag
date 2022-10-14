@@ -60,8 +60,8 @@ class StripeController extends AbstractController
             'cancel_url' => $YOUR_DOMAIN . '/cancel.html',
         ]);
 
-        $order->setStripeSessionId($checkout_session->id);
-        $entityManager->flush();
+         $order->setStripeSessionId($checkout_session->id);
+         $entityManager->flush();
 
         $reponse = new JsonResponse(['id' =>$checkout_session->id]);
         return $reponse; 

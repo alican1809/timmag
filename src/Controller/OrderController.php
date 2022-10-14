@@ -51,9 +51,8 @@ class OrderController extends AbstractController
             $order->setReference($reference);
             $order->setUser($this->getUser());
             $order->setCreateAt($date);
-
             $entityManager->persist($order);
-
+            
             foreach ($cart->getFull() as $product) {
                 $orderDetails = new OrderDetails();
                 $orderDetails->setMyOrder($order);
@@ -62,10 +61,12 @@ class OrderController extends AbstractController
                 $orderDetails->setPrice($product['product']->getPrice());
                 $orderDetails->setTotal($product['product']->getPrice() * $product['quantity']);
                 $order->setIsPaid(0);
+                
                 $entityManager->persist($orderDetails);
             }
+            
             $entityManager->flush();
-          
+         
             
             return $this->render('order/add.html.twig', [
                 'cart' => $cart->getFull(),
