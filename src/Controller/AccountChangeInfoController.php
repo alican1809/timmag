@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Classe\Mail;
-use App\Entity\User;
+
 use App\Form\ChangProfilInfoType;
 use App\Form\ChangProfilPasswordType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -16,7 +16,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 class AccountChangeInfoController extends AbstractController
 {
     #[Route('/compte/modifie-profil', name: 'app_account_change_info')]
-    public function index(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $hasher, Mail $mail, User $user): Response
+    public function index(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $hasher, Mail $mail): Response
     {
         $user = $this->getUser();
         $forma = $this->createForm(ChangProfilInfoType::class, $user);
