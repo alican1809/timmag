@@ -16,7 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class OrderController extends AbstractController
 {
     #[Route('/commande', name: 'app_order')]
-    public function index(Cart $cart, Request $request, EntityManagerInterface $entityManager,User $user): Response
+    public function index(Cart $cart, Request $request, EntityManagerInterface $entityManager): Response
     {
         $user = $this->getUser();
         $forma = $this->createForm(OrderType::class, $user);
