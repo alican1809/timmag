@@ -3,40 +3,51 @@
 {% block title %}Votre Commande{% endblock %}
 
 {% block body %}
-    <h1>Commande</h1>
+    <h1 class="h1">Commande</h1>
 
 <h3>valider les informations</h3>
-
+<div id="order">
 {{form_start(form, {action:path('app_order_recap') })}}
 {{form_end(form)}}
-
+</div>
 {% if cart|length > 0 %}
-		{%set total=null %}
+		{%set total=null %}<div class="prodDashboard">
 		{% for product in cart %}
-			<img src="/uploads/{{product.product.illustration}}" alt="">
-			<div>
-				<a href="{{ path('app_product' , {'slug' : product.product.slug }) }}">{{product.product.name}}</a>
-			</div>
-			<div>{{product.product.subtitle}}</div>
-			<div>{{ (product.product.price/100)|number_format(2,',','.') }}€</div>
-            		<div>
-				<a href="{{ path('app_removeOne_cart', {id: product.product.id}) }}">-</a>
-			</div>
-			<div>x{{product.quantity}}</div>
+		
+	<div class="product">
+					<img src="/uploads/{{product.product.illustration}}" alt="">
+					<div>
+						<div class="panierContentProdPrice">
+							<div>
+								<a class="btn troc" href="{{ path('app_product' , {'slug' : product.product.slug }) }}">{{product.product.name}}</a>
+							</div>
+							<div>{{ (product.product.price/100)|number_format(2,',','.') }}€</div>
+						</div>
+						<div class="panierContentBtn">
+							<a class="btn" href="{{ path('app_removeOne_cart', {id: product.product.id}) }}">-</a>
 
-		<div>
-				<a href="{{ path('app_add_cart', {id: product.product.id}) }}">+</a>
-			</div>
+							<div>x{{product.quantity}}</div>
 
-			<div>{{ ((product.product.price*product.quantity)/100)|number_format(2,',','.') }}€</div>
-			<div>
-				<a href="{{ path('app_delete_cart', {id: product.product.id}) }}">suppPro</a>
-			</div>
+							<a class="btn" href="{{ path('app_add_cart', {id: product.product.id}) }}">+</a>
+						</div>
+						<div class="panierContentPrixDel">
+							<div>{{ ((product.product.price*product.quantity)/100)|number_format(2,',','.') }}€</div>
+
+							<a href="{{ path('app_delete_cart', {id: product.product.id}) }}">
+								<img class="btn delete" src="{{ asset('assets/img/trash.svg') }}" alt="delete">
+							</a>
+						</div>
+						{% set total = total+(product.product.price*product.quantity) %}
+					</div>
+				</div>
 			{% set total = total+(product.product.price*product.quantity) %}
 			
-		{% endfor %}
-		{{ (total/100)|number_format(2,',','.') }}€
-		{{cart|length}}	
+		{% endfor %}		
+		</div><div class="panierPriceQuantity">
+			prix total :{{ (total/100)|number_format(2,',','.') }}€
+			<div>
+				quantité :{{cart|length}}
+			</div>
 	{% else %}
 		panier vide
 	{% endif %}

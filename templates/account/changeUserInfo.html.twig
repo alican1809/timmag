@@ -1,20 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tim Store - Modifcaton profile{% endblock %}
+{% block title %}Tim Store - Modificaton information
+{% endblock %}
 
 {% block body %}
-    <h1>Modifcaton profil</h1> <p>{{ notif }}</p>
-    <p> {{app.user.firstname}} {{app.user.lastname}}</p>
-   
- {{form(form)}} 
- {{form(forma)}}  
-    <a class="btn"href="{{ path('app_account') }}">retour a mon compte</a>
-    {# timme avheter visuel#}
-    {# menu liste des possiblité #}
-    {# carte profile #}
-
-    
-
-
-
-{% endblock %}
+	<h1 class="h1">Modificaton information</h1>
+	<h2>Mot de passe</h2>
+	{{form(form)}}
+		<h2>Info</h2>
+		<p>{{ notif }}</p>
+		{{form(forma)}}
+			<a class="btn" href="{{ path('app_account') }}">retour a mon compte</a>
+		{% endblock %}

@@ -14,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class OrderController extends AbstractController
+
 {
     #[Route('/commande', name: 'app_order')]
     public function index(Cart $cart, Request $request, EntityManagerInterface $entityManager): Response
@@ -47,7 +48,6 @@ class OrderController extends AbstractController
             $order = new Order();
            
             $reference = $date->format('dmY').'-'.uniqid();
-            
             $order->setReference($reference);
             $order->setUser($this->getUser());
             $order->setCreateAt($date);
@@ -64,14 +64,15 @@ class OrderController extends AbstractController
                 
                 $entityManager->persist($orderDetails);
             }
-      
-            $entityManager->flush();
-         
             
+            $entityManager->flush();
+            
+         
+       
             return $this->render('order/add.html.twig', [
                 'cart' => $cart->getFull(),
                 'user' => $user,
-                'reference' => $order->getReference()
+                'reference' => $order->getReference(),
             ]);
         }
         return $this->redirectToRoute('cart');

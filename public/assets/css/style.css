@@ -7,7 +7,7 @@
     box-sizing: border-box;
     font-family: 'Red Hat Display', sans-serif;
     text-decoration: none;
-   font-size: 100%;
+    font-size: 100%;
 
 
 }
@@ -197,31 +197,35 @@ main {
     bottom: 0;
     margin-top: 200px;
     padding: 0 50px;
-justify-content: space-around;
+    justify-content: space-around;
     left: 0;
-    color: white;display: flex;
-
-}
-
-.linkfooter{
-display: flex;
-gap:50px;
-justify-content: center;
-flex-direction: column;
-}
-.linkfooter>a{
+    color: white;
     display: flex;
-   height:fit-content;
 
-color: white;
+}
 
-align-items: center;
-gap: 30px;
-    }
-    .imgfooter{
+.linkfooter {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    flex-direction: column;
+}
 
-        padding: 80px;
-    }
+.linkfooter>a {
+    display: flex;
+    height: fit-content;
+
+    color: white;
+
+    align-items: center;
+    gap: 30px;
+}
+
+.imgfooter {
+
+    padding: 80px;
+}
+
 /*-----------------------------------------------------------
 */
 
@@ -561,43 +565,231 @@ gap: 30px;
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .hidden {
     visibility: hidden;
 }
 
-.context{
-    font-size:30px;
+.context {
+    font-size: 30px;
     text-align: center;
+}
+
+/*----------------cart-----------------*/
+
+/*---- content1--------*/
+
+
+.panierContentBtn {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.panierContentBtn>.btn {
+    margin: 1rem;
+}
+
+.delete {
+    width: 2rem;
+    padding: 0.2rem;
+    background-color: #0047FF;
+    border: 0;
+}
+
+.panierContentPrixDel {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.panierContentProdPrice {
+    display: flex;
+    align-items: center;
+    gap: 29px;
+    flex-direction: column;
+}
+
+.panierPriceQuantity {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-weight: 700;
+    margin: 50px 0;
+    border-top: #0047FF solid 0.3rem;
+    padding: 20px 0;
+}
+
+.h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 50px;
+}
+
+
+/*----------------------------------------connexion----------------*/
+
+.connexionContentBtn {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.connexionContentInput {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+
+}
+
+.connexionContent {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    margin: 20px;
+    padding: 20px;
+    transition-duration: 0.2s;
+}
+
+.connexionContent:hover {
+    transform: scale(110%);
+}
+
+.connexionContentBtn>.btn {
+    border: 0;
+    margin: 10px;
+}
+
+/*---------------------inscription---------------------------------------------------*/
+
+#register {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    margin: 20px;
+    padding: 20px;
+    transition-duration: 0.2s;
+}
+
+#register>div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+
+}
+
+#register:hover {
+    transform: scale(110%);
+}
+
+/*---------------------------------------valider commande------------------------------------------*/
+
+
+.h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 50px;
+}
+
+#order>form{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    margin: 20px;
+    padding: 20px;
+    transition-duration: 0.2s;
+}
+
+#order>form>div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+
+}
+
+#order>form:hover {
+    transform: scale(110%);
+}
+
+
+/*-------------------------------------modification nfo -----------------------------------*/
+
+#chang_profil_info {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    margin: 20px;
+    padding: 20px;
+    transition-duration: 0.2s;
+}
+
+#chang_profil_info>div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+
+}
+
+#chang_profil_info:hover {
+    transform: scale(110%);
+}
+
+#chang_profil_password {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    margin: 20px;
+    padding: 20px;
+    transition-duration: 0.2s;
+}
+
+#chang_profil_password>div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+
+}
+
+#chang_profil_password:hover {
+    transform: scale(110%);
 }

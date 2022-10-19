@@ -1,7 +1,3 @@
-
-
-
-
 {% extends 'base.html.twig' %}
 
 {% block javascript %}
@@ -14,9 +10,12 @@
 
 {% block body %}
 	<h2>Mon récapitulatif</h2>
+	<p>Vérifiez vos informations avant de payer votre commande.</p>
+
 	<div>
 		<div>
-	
+			<strong>Mon adresse de livraison</strong><br/>
+			<strong>Mon transporteur</strong><br/>
 			<div>
 				{{ user.firstname }}<br/>
 				{{ user.lastname }}<br/>
@@ -59,7 +58,7 @@
 			€<br/>
 
 
-			<button type="submit" id="checkout-button">Paiement</button>
+			<button type="submit" id="checkout-button">Checkout</button>
 		</div>
 	</div>
 
@@ -106,10 +105,3 @@
         });
 	</script>
 {% endblock %}
-
-
-
-
-
-
-

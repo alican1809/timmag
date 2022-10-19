@@ -22,12 +22,14 @@ class RegisterType extends AbstractType
             ->add('firstname', TextType::class,[
                 'label' => 'Prénom',
                  'attr' => [
+                   
                     'placeholder' => 'Saisir votre Prénom ici placeholder'
                  ]
             ])
             ->add('lastname', TextType::class,[
                 'label' => 'Nom',
                  'attr' => [
+            
                     'placeholder' => 'Saisir votre Nom ici placeholder'
                  ]
                  
@@ -35,6 +37,7 @@ class RegisterType extends AbstractType
             ->add('email', EmailType::class,[
                 'label' => 'Adresse mail',
                  'attr' => [
+                 
                     'placeholder' => 'Saisir votre adresse mail ici placeholder'
                  ]
             ])
@@ -48,12 +51,14 @@ class RegisterType extends AbstractType
                     ]),
     
                     'attr' =>[
+                
                         'placeholder' => 'Saisir votre mode passe '
                     ]
                 ],
                 'second_options' => [
                     'label' => "Cofimation de Mot de passe",
                     'attr' =>[
+                        
                         'placeholder' => 'Confirmer votre mode passe'
                     ]
                 ]
