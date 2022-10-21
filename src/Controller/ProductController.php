@@ -18,14 +18,9 @@ class ProductController extends AbstractController
     public function index(ProductRepository $productRepository, EntityManagerInterface $entityManager, Request $request): Response
     {
         $products = $productRepository->findAll();
-
-        // $search = new Search();
-
-        // $form = $this->createForm(SearchType::class, $search );
   
         return $this->render('product/index.html.twig', [
             'products' => $products,
-         // 'form' => $form->createView()
         ]);
     }
 

@@ -1,0 +1,20 @@
+	
+    {% extends 'base.html.twig' %}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+ 
+    <div class="homeContent2">
+		<img width="200px" src="assets/img/page_logo.svg" alt="">
+		<div class="homeTitle">
+			<span class="homeTitleSpan">Achat</span>Annulé
+		</div>
+		<div class="homeSlogan">Votre achat est annulé veuille recommencer la commande
+		</div>
+		<a class="btn" href="{{ path('app_home') }}">retour a l'acceuil</a>
+		<a class="btn" href="{{ path('app_cart') }}">retour au panier</a>
+	</div>
+{% endblock %}
+
+   

@@ -4,11 +4,17 @@
 {% endblock %}
 
 {% block body %}
-	<h1 class="h1">Modificaton information</h1>
-	<h2>Mot de passe</h2>
-	{{form(form)}}
+	<h1 class="h1">Information</h1>
+	    <div class="accountBtnContent">
+	    <a class="btn" href="{{ path('app_account_change_info') }}">Inforamtion</a>
+	    <a class="btn" href="{{ path('app_account') }}">Collection</a>
+	    <a class="btn" href="{{ path('app_logout') }}">Deconnexion</a></div>
+	<div class="space"></div>
+
 		<h2>Info</h2>
 		<p>{{ notif }}</p>
 		{{form(forma)}}
+		<h2>Mot de passe</h2>
+	{{form(form)}}
 			<a class="btn" href="{{ path('app_account') }}">retour a mon compte</a>
 		{% endblock %}

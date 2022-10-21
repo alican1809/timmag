@@ -4,9 +4,12 @@ namespace App\Controller;
 
 use Stripe\Stripe;
 use App\Classe\Cart;
+use App\Classe\Mail;
+use App\Entity\User;
 use App\Entity\Order;
 use App\Entity\Product;
 use Stripe\Checkout\Session;
+use App\Repository\OrderRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,6 +18,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class StripeController extends AbstractController
 {
+
+
+  
+
+
+ 
+
+
+
+
+
     #[Route('/commande/create-session/{reference}', name: 'app_stripe_create_session')]
     public function index(Cart $cart, EntityManagerInterface $entityManager, $reference): Response
 
@@ -56,8 +70,8 @@ class StripeController extends AbstractController
             'customer_email' => $this->getUser()->getEmail(),
             'line_items' => [$product_for_stripe],
             'mode' => 'payment',
-            'success_url' => $YOUR_DOMAIN . '/success.html',
-            'cancel_url' => $YOUR_DOMAIN . '/cancel.html',
+            'success_url' => $YOUR_DOMAIN . '/success',
+            'cancel_url' => $YOUR_DOMAIN . '/cancel',
         ]);
 
          $order->setStripeSessionId($checkout_session->id);
@@ -65,6 +79,33 @@ class StripeController extends AbstractController
 
         $reponse = new JsonResponse(['id' =>$checkout_session->id]);
         return $reponse; 
+    } 
+    #[Route('/success', name: 'app_success')]
+    public function success( ): Response
 
+    {
+        $user=$this-> getUser();
+        $mail = new Mail();
+        $content = "Bonjour ".$user->getFirstname()."<br/>Timland<br>Vous remerci de vorte achat <br/>Vous avez de nouveaux Tim dans votre Collecetion  dans Mon Compte Sur le site  www.timmag.herokuapp.com  <br/>?";
+        $mail->send($user->getEmail(), $user->getFirstname(), 'Achat TimMag', $content);
+        
+
+     return $this->render('stripe/success.html.twig',[
+        
+     ]);
     }
+
+    #[Route('/cancel', name: 'app_cancel')]
+    public function cancel( ): Response
+
+    {
+ 
+        
+
+     return $this->render('stripe/cancel.html.twig',[
+        
+     ]);
+    }
+
+   
 }

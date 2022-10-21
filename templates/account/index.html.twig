@@ -1,24 +1,54 @@
 {% extends 'base.html.twig' %}
 
 
-{% block title %}Tim Store - Mon Compte{% endblock %}
+{% block title %}Tim Store - Mon Compte
+{% endblock %}
 {% block body %}
+	<h1 class="h1">Compte {{app.user.firstname}}
+		{{app.user.lastname}}</h1>
+    <div class="accountBtnContent">
+	    <a class="btn" href="{{ path('app_account_change_info') }}">Inforamtion</a>
+	    <a class="btn" href="{{ path('app_account') }}">Collection</a>
+	    <a class="btn" href="{{ path('app_logout') }}">Deconnexion</a></div>
+	<div class="space"></div>
+	<div class="homeContent4">
+
+		<h2 class="homeH2 btn">La Parade de Vos Tim</h2>
+
+		<div class="animTimFly"></div>
 
 
+	</div>
+	<div class="space"></div>
+	<div class="homeContent3">
+		<h2 class="homeH2 btn">Vos Cartes tim</h2>
+		<div class="productscrollbar">
+			{% for product in collection %}
+				<div class="product ">
+					<div class="prodImg " width="100%">
+						<a class="aherfTim" width="100%" href="{{ path('app_product' , {'slug' : product.slug }) }}">
+							<img class="imgTim" width="100%" src="/uploads/{{product.illustration}}" alt="product.name">
+						</a>
+					</div>
+					<div class="prodText">
+						<div class="prodName">
+							<a href="{{ path('app_product' , {'slug' : product.slug }) }}">{{product.name}}</a>
+						</div>
+						<div class="prodSubtitle troc">{{product.subtitle}}</div>
+						<div class="prodBlock">
+							<div class="addBtn btn">
+								<a class="btn" href="">Joué</a>
+							</div>
+							<div class="prodPrice">n°{{ (product.id )}}</div>
+						</div>
 
+					</div>
+				</div>
+				<div class="hidden">{{product.category.id}}</div>
+			{% endfor %}
+		</div>
+	</div>
 
-
-    <h1 class="h1">Compte Tim</h1>
-    <p>Bievenu nous vous attendions {{app.user.firstname}} {{app.user.lastname}}</p>
-    {# timme avheter visuel#}
-    {# menu liste des possiblité #}
-    {# carte profile #}
-     <a class="btn" href="{{ path('app_account_change_info') }}">Modifier mot de passe</a>
-    {{app.user.firstname}}
-    {{app.user.lastname}}
-    {{app.user.password}}
-    {{app.user.email}}
-    <a class="btn" href="{{ path('app_logout') }}">deconnexion</a>
 
 
 {% endblock %}

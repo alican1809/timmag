@@ -1,0 +1,27 @@
+	
+    {% extends 'base.html.twig' %}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+ 
+    <div class="homeContent2">
+		<img width="200px" src="assets/img/page_logo.svg" alt="">
+		<div class="homeTitle">
+			<span class="homeTitleSpan">Achat</span>Validé
+		</div>
+		<div class="homeSlogan">Vous disposer de nouveaux
+			<span class="homeSloganSpan1">Tims</span>
+			dans votre collection 
+				<span class="homeSloganSpan1"><a class="" href="{{ path('app_account') }}">Cliqué ici.</a></span>
+				<div>
+			vous allez recevoir votre facture au {{ app.user.email }}</div>
+		</div>
+		
+
+
+			<a class="btn" href="{{ path('app_home') }}">retour a l'acceuil</a>
+	</div>
+{% endblock %}
+
+   

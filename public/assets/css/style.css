@@ -793,3 +793,9 @@ main {
 #chang_profil_password:hover {
     transform: scale(110%);
 }
+/*---------------------------------------compte------------------------------*/
+.accountBtnContent{
+    text-align: center;
+    flex-wrap: wrap;
+    margin:  0 0  100px 0;
+}
