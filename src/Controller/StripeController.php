@@ -37,6 +37,7 @@ class StripeController extends AbstractController
         $product_for_stripe=[];
 
         $YOUR_DOMAIN = 'https://timmag.herokuapp.com';
+        $YOUR_DOMAIN = 'http://localhost:8000';
 
         $order=$entityManager->getRepository(Order::class)->findOneByReference($reference);
       
@@ -70,42 +71,48 @@ class StripeController extends AbstractController
             'customer_email' => $this->getUser()->getEmail(),
             'line_items' => [$product_for_stripe],
             'mode' => 'payment',
-            'success_url' => $YOUR_DOMAIN . '/success',
-            'cancel_url' => $YOUR_DOMAIN . '/cancel',
+            'success_url' => $YOUR_DOMAIN . '/commande/merci/{CHECKOUT_SESSION_ID}',
+            'cancel_url' => $YOUR_DOMAIN . '/commande/erreur/{CHECKOUT_SESSION_ID}',
         ]);
 
-         $order->setStripeSessionId($checkout_session->id);
-         $entityManager->flush();
+        $order->setStripeSessionId($checkout_session->id);
+        $entityManager->flush();
 
-        $reponse = new JsonResponse(['id' =>$checkout_session->id]);
-        return $reponse; 
-    } 
-    #[Route('/success', name: 'app_success')]
-    public function success( ): Response
-
-    {
-         $user=$this-> getUser();
-         $mail = new Mail();
-         $content = "Bonjour ".$user->getFirstname()."<br/>Timland<br>Vous remerci de vorte achat <br/>Vous avez de nouveaux Tim dans votre Collecetion  dans Mon Compte Sur le site  www.timmag.herokuapp.com  <br/>?";
-         $mail->send($user->getEmail(), $user->getFirstname(), 'Achat TimMag', $content);
-        
-
-     return $this->render('stripe/success.html.twig',[
-        
-     ]);
+        $response = new JsonResponse(['id' => $checkout_session->id]);
+        return $response;
     }
 
-    #[Route('/cancel', name: 'app_cancel')]
-    public function cancel( ): Response
 
-    {
+    // #[Route('/success', name: 'app_success')]
+    // public function success( $reponse): Response
+
+    // {
+
+    //     $reponse;
+    //     dd($reponse);
+    //      if(!$order){
+    //       $user=$this-> getUser();
+    //       $mail = new Mail();
+    //       $content = "Bonjour ".$user->getFirstname()."<br/>Timland<br>Vous remerci de vorte achat <br/>Vous avez de nouveaux Tim dans votre Collecetion  dans Mon Compte Sur le site  www.timmag.herokuapp.com  <br/>?";
+    //       $mail->send($user->getEmail(), $user->getFirstname(), 'Achat TimMag', $content);}
+    //     $us="e";
+
+    //  return $this->render('stripe/success.html.twig',[
+    //     "oks"=>$us
+    //  ]);
+    // }
+
+    // #[Route('/cancel', name: 'app_cancel')]
+    // public function cancel( ): Response
+
+    // {
  
         
 
-     return $this->render('stripe/cancel.html.twig',[
+    //  return $this->render('stripe/cancel.html.twig',[
         
-     ]);
-    }
+    //  ]);
+    // }
 
    
 }
