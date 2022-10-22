@@ -84,10 +84,10 @@ class StripeController extends AbstractController
     public function success( ): Response
 
     {
-        // $user=$this-> getUser();
-        // $mail = new Mail();
-        // $content = "Bonjour ".$user->getFirstname()."<br/>Timland<br>Vous remerci de vorte achat <br/>Vous avez de nouveaux Tim dans votre Collecetion  dans Mon Compte Sur le site  www.timmag.herokuapp.com  <br/>?";
-        // $mail->send($user->getEmail(), $user->getFirstname(), 'Achat TimMag', $content);
+         $user=$this-> getUser();
+         $mail = new Mail();
+         $content = "Bonjour ".$user->getFirstname()."<br/>Timland<br>Vous remerci de vorte achat <br/>Vous avez de nouveaux Tim dans votre Collecetion  dans Mon Compte Sur le site  www.timmag.herokuapp.com  <br/>?";
+         $mail->send($user->getEmail(), $user->getFirstname(), 'Achat TimMag', $content);
         
 
      return $this->render('stripe/success.html.twig',[
