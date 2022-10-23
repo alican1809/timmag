@@ -7,9 +7,9 @@
 	<h1 class="h1">Compte {{app.user.firstname}}
 		{{app.user.lastname}}</h1>
     <div class="accountBtnContent">
-	    <a class="btn" href="{{ path('app_account_change_info') }}">Inforamtion</a>
-	    <a class="btn" href="{{ path('app_account') }}">Collection</a>
-	    <a class="btn" href="{{ path('app_logout') }}">Deconnexion</a></div>
+	    <a class="btn navLink" href="{{ path('app_account_change_info') }}">Inforamtion</a>
+	    <a class="btn navLink" href="{{ path('app_account') }}">Collection</a>
+	    <a class="btn navLink" href="{{ path('app_logout') }}">Deconnexion</a></div>
 	<div class="space"></div>
 	<div class="homeContent4">
 
@@ -21,8 +21,14 @@
 	</div>
 	<div class="space"></div>
 	<div class="homeContent3">
+		
 		<h2 class="homeH2 btn">Vos Cartes tim</h2>
-		<div class="productscrollbar">
+		
+		<p class="textSearch ">Rechercher vos Tim dans la barre de recherche:</p>
+		<input  type="text" autocomplete="off" placeholder="Recherche." id="searchInput" >
+		
+	<div class="space"></div>	
+		<div class="prodDashboard">
 			{% for product in collection %}
 				<div class="product ">
 					<div class="prodImg " width="100%">
@@ -32,7 +38,7 @@
 					</div>
 					<div class="prodText">
 						<div class="prodName">
-							<a href="{{ path('app_product' , {'slug' : product.slug }) }}">{{product.name}}</a>
+							<a class="name" href="{{ path('app_product' , {'slug' : product.slug }) }}">{{product.name}}</a>
 						</div>
 						<div class="prodSubtitle troc">{{product.subtitle}}</div>
 						<div class="prodBlock">
@@ -43,8 +49,9 @@
 						</div>
 
 					</div>
+					<div class="hidden">{{product.category.id}}</div>
 				</div>
-				<div class="hidden">{{product.category.id}}</div>
+				
 			{% endfor %}
 		</div>
 	</div>

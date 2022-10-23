@@ -36,7 +36,7 @@ class StripeController extends AbstractController
 
         $product_for_stripe=[];
 
-        $YOUR_DOMAIN = 'https://timmag.herokuapp.com';
+        // $YOUR_DOMAIN = 'https://timmag.herokuapp.com';
         $YOUR_DOMAIN = 'http://localhost:8000';
 
         $order=$entityManager->getRepository(Order::class)->findOneByReference($reference);

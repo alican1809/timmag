@@ -4,9 +4,10 @@
 {% endblock %}
 
 {% block body %}
-
+	<div class="homeContent3">
 	<h1 class="h1">Produits</h1>
-	<input type="text" autocomplete="off" placeholder="Search here.." id="searchInput" value="efefEF">
+	<p class="textSearch ">Rechercher vos Tim dans la barre de recherche:</p>
+	<input  type="text" autocomplete="off" placeholder="Recherche." id="searchInput" >
 	<div class="prodDashboard">
 	
 	{% for product in products %}
@@ -24,6 +25,6 @@
 			</div>
 		</div>
 	{% endfor %}
-	</div>        
+	</div>        </div>
 
 {% endblock %}
