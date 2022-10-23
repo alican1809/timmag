@@ -26,10 +26,10 @@ class OrderCancelController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
-        // Envoyer un email à notre utilisateur pour lui indiquer l'échec de paiement
+       
         $mail = new Mail();
-        $content = "Bonjour ".$order->getUser()->getFirstname()."<br/Echec de paiment<br><br/>Votre commande n° " .$order->getReference() ." a échoué";
-        $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstname(), 'Votre commande La TimMag est pas valide.', $content);
+        $content = "Bonjour ".$order->getUser()->getFirstname()."<br/>Merci pour votre commande.<br><br/>Votre commande n° ". $order->getReference() ." sur TimMag a échoué";
+        $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstname(), 'Achat TimMag', $content);
 
         return $this->render('order_cancel/index.html.twig', [
             'order' => $order

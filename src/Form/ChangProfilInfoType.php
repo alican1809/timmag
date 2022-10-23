@@ -28,7 +28,7 @@ class ChangProfilInfoType extends AbstractType
             ])
             ->add('lastname', TextType::class, [
           
-                'label' => 'nom',
+                'label' => 'Nom',
                 'attr' => []
             ])
             ->add('submit', SubmitType::class,[

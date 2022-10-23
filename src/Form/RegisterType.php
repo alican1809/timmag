@@ -23,14 +23,14 @@ class RegisterType extends AbstractType
                 'label' => 'Prénom',
                  'attr' => [
                    
-                    'placeholder' => 'Saisir votre Prénom ici placeholder'
+                    'placeholder' => 'Saisir votre Prénom ici'
                  ]
             ])
             ->add('lastname', TextType::class,[
                 'label' => 'Nom',
                  'attr' => [
             
-                    'placeholder' => 'Saisir votre Nom ici placeholder'
+                    'placeholder' => 'Saisir votre Nom ici'
                  ]
                  
             ])
@@ -38,7 +38,7 @@ class RegisterType extends AbstractType
                 'label' => 'Adresse mail',
                  'attr' => [
                  
-                    'placeholder' => 'Saisir votre adresse mail ici placeholder'
+                    'placeholder' => 'Saisir votre adresse mail ici'
                  ]
             ])
             ->add('password', RepeatedType::class,[

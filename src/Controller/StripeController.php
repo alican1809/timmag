@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use Stripe\Stripe;
 use App\Classe\Cart;
-use App\Classe\Mail;
 use App\Entity\User;
 use App\Entity\Order;
 use App\Entity\Product;
@@ -18,17 +17,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class StripeController extends AbstractController
 {
-
-
-  
-
-
- 
-
-
-
-
-
     #[Route('/commande/create-session/{reference}', name: 'app_stripe_create_session')]
     public function index(Cart $cart, EntityManagerInterface $entityManager, $reference): Response
 
@@ -37,6 +25,7 @@ class StripeController extends AbstractController
         $product_for_stripe=[];
 
         $YOUR_DOMAIN = 'https://timmag.herokuapp.com';
+      
 
         $order=$entityManager->getRepository(Order::class)->findOneByReference($reference);
       

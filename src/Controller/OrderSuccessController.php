@@ -40,8 +40,8 @@ class OrderSuccessController extends AbstractController
     
       
                 $mail = new Mail();
-                $content = "Bonjour ".$order->getUser()->getFirstname()."<br/>Merci pour votre commande.<br><br/>Lorem ipsum dolor sit amet, consectetur adipisicing ";
-                $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstname(), 'Votre commande La TimMag est bien validée.', $content);
+                $content = "Bonjour ".$order->getUser()->getFirstname()."<br/>Merci pour votre commande.<br><br/>Votre commande n° ". $order->getReference() ." sur TimMag est comfirmé";
+                $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstname(), 'Achat TimMag', $content);
             }
     
             return $this->render('order_success/index.html.twig', [

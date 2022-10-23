@@ -40,9 +40,9 @@ class RegisterController extends AbstractController
 
 
             $mail = new Mail();
-                $content = "Bonjour ".$user->getFirstname()."<br/>Bienvenue sur la première .<br><br/>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam expedita fugiat ipsa magnam mollitia optio voluptas! Alias, aliquid dicta ducimus exercitationem facilis, incidunt magni, minus natus nihil odio quos sunt?";
+                $content = "Bonjour ".$user->getFirstname()."<br>Votre inscription s'est correctement déroulée. Vous pouvez dès à présent vous connecter à votre compte.";
                 $mail->send($user->getEmail(), $user->getFirstname(), 'Bienvenue chez les Tim', $content);
-                $notification = "Votre inscription s'est correctement déroulée. Vous pouvez dès à présent vous connecter à votre compte.";
+                $notification = "Votre inscription c'est correctement déroulée. Vous pouvez dès à présent vous connecter à votre compte.";
         }
         else {
             $notification = "L'email deja existant ou erreur de mail.";

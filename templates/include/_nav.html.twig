@@ -1,30 +1,25 @@
 <nav class="navbar">
-<a href="{{ path('app_home') }}"><img class ="navLogo"   src="{{ asset('assets/img/nav_logo.svg') }}" alt=""><div class='btn navlogobtn navLink'>acceuil</div>
-</a>
+	<a href="{{ path('app_home') }}"><img class="navLogo" src="{{ asset('assets/img/nav_logo.svg') }}" alt="Logo Accueil"><div class='btn navlogobtn navLink'>Accueil</div>
+	</a>
 
-<a class="btn navLink"  href="{{ path('app_products') }}">produits</a>
+	<a class="btn navLink" href="{{ path('app_products') }}">Produits</a>
 
-{% if app.user %}
+	{% if app.user %}
 
-{% if is_granted("ROLE_ADMIN") %}
-<a class="btn navLink " href="{{ path('admin') }}">espace admin</a>{% endif %}
-<a class="btn navLink " href="{{ path('app_cart') }}">mon panier</a>
-</div>
-<a href="{{ path('app_account') }}"> <img class ="navLogo"src="{{ asset('assets/img/nav_logo_compte.svg') }}" alt=""><div class='btn navlogobtn navLink'>compte</div></a>
+		{% if is_granted("ROLE_ADMIN") %}
+			<a class="btn navLink " href="{{ path('admin') }}">Espace Admin</a>
+		{% endif %}
+		<a class="btn navLink " href="{{ path('app_cart') }}">Panier</a>
+	</div>
+	<a href="{{ path('app_account') }}">
+		<img class="navLogo" src="{{ asset('assets/img/nav_logo_compte.svg') }}" alt=""><div class='btn navlogobtn navLink'>Compte</div>
+	</a>
 
 
 {% else %}
 
-<a class="btn navLink " href="{{ path('app_register') }}">inscription</a>
-<a class="btn navLink " href="{{ path('app_login') }}">connexion</a>
-<a class="btn navLink " href="{{ path('app_cart') }}">mon panier</a>
+	<a class="btn navLink " href="{{ path('app_register') }}">Inscription</a>
+	<a class="btn navLink " href="{{ path('app_login') }}">Connexion</a>
+	<a class="btn navLink " href="{{ path('app_cart') }}">Panier</a>
 
-{% endif %}
-
-
-
-
-
-</nav>
-<div class="navMarg"></div>
-
+{% endif %}</nav><div class="navMarg"></div>

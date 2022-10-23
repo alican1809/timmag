@@ -1,20 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tim Store - Modificaton information
+{% block title %}Tim Store - Informations
 {% endblock %}
 
 {% block body %}
-	<h1 class="h1">Information</h1>
-	    <div class="accountBtnContent">
-	    <a class="btn" href="{{ path('app_account_change_info') }}">Inforamtion</a>
-	    <a class="btn" href="{{ path('app_account') }}">Collection</a>
-	    <a class="btn" href="{{ path('app_logout') }}">Deconnexion</a></div>
+
+	<h1 class="h1">Vos Informations</h1>
+
+	<div class="accountBtnContent">
+		<a class="btn navLink" href="{{ path('app_account_change_info') }}">Vos Informations</a>
+		<a class="btn navLink" href="{{ path('app_account') }}">Votre Collection</a>
+		<a class="btn navLink" href="{{ path('app_logout') }}">Deconnexion</a>
+	</div>
+
 	<div class="space"></div>
 
-		<h2>Info</h2>
-		<p>{{ notif }}</p>
-		{{form(forma)}}
-		<h2>Mot de passe</h2>
+	<h2>Info</h2>
+	<p>{{ notifM }}</p>
+
+	{{form(forma)}}
+
+	<h2>Mot de passe</h2>
+	<p>{{ notifMdp }}</p>
+
 	{{form(form)}}
-			<a class="btn" href="{{ path('app_account') }}">retour a mon compte</a>
-		{% endblock %}
+
+	<a class="btn" href="{{ path('app_account') }}">retour à mon compte</a>
+{% endblock %}

@@ -1,7 +1,10 @@
 {% extends'@EasyAdmin/page/content.html.twig'%}
 
 {% block page_content %}
-
-
-<a class="btn"href="{{ path('app_home') }}">Page d'acceiul</a>
+<nav class="navbar">
+<a class="btn" href="{{ path('app_home') }}">Page accueil</a>
+<a class="btn navLink"  href="{{ path('app_products') }}">Produits</a>
+<a class="btn navLink " href="{{ path('app_cart') }}">Panier</a>
+<a class="btn navLink " href="{{ path('app_account') }}">Compte</a>
+</nav>
 {% endblock %}

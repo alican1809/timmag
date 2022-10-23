@@ -17,9 +17,9 @@ class ChangProfilPasswordType extends AbstractType
         $builder
         ->add('old_password', PasswordType::class, [
             'mapped' => false,
-            'label' => 'Mon mot de passe actuel',
+            'label' => 'Mot de passe actuel',
             'attr' => [
-                'placeholder' => 'Veuillez saisir votre mot de passe actuel'
+                'placeholder' => 'Saisir votre mot de passe actuel'
             ]
         ])
         ->add('new_password', RepeatedType::class, [
@@ -27,16 +27,16 @@ class ChangProfilPasswordType extends AbstractType
           
             'type' => PasswordType::class,
             'first_options' => [
-                'label' => "Nouveau Mot de passe",
+                'label' => "Nouveau Mot de passe 12 caractères min",
                 'attr' => [
-                    'placeholder' => 'Saisir votre mode passe'
+                    'placeholder' => 'Saisir votre nouveau mot de passe'
                 ]
             ],
             'second_options' => [
                 
-                'label' => "Cofimation de Nouveau Mot de passe",
+                'label' => "Confirmation du Nouveau Mot de passe",
                 'attr' => [
-                    'placeholder' => 'Confirmer nouveau votre mode passe'
+                    'placeholder' => 'Saisir votre nouveau mot de passe'
                 ]
             ]
         ])

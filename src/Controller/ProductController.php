@@ -2,20 +2,19 @@
 
 namespace App\Controller;
 
-use App\Classe\Search;
+
 use App\Entity\Product;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ProductController extends AbstractController
 {
     #[Route('/nos-produits', name: 'app_products')]
-    public function index(ProductRepository $productRepository, EntityManagerInterface $entityManager, Request $request): Response
+    public function index(ProductRepository $productRepository): Response
     {
         $products = $productRepository->findAll();
   
@@ -37,8 +36,6 @@ class ProductController extends AbstractController
 
         return $this->render('product/show.html.twig', [
             'product' => $product,
-
-       
         ]);
     }
 }

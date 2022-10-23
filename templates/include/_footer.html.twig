@@ -1,26 +1,21 @@
-<nav class="footer">
-    <img class='imgfooter' src="{{ asset('assets/img/imgfooter.svg') }}" alt="Tim masquotte">
-    <div class="linkfooter">
 
-        <a href="www.youtube.com">
-            <img with="70%" src="{{ asset('assets/img/youtubefooter.png') }}" alt="youtube">
+<div class="space"></div>
+ <footer>
+        <ul class="icons">
+            <li><a href="#"><ion-icon name="logo-discord"></ion-icon></a></li>
+            <li><a href="#"><ion-icon name="logo-github"></ion-icon></a></li>
+            <li><a href="#"><ion-icon name="logo-youtube"></ion-icon></a></li>
+        </ul>
+        <ul class="menu">
+                <li><a href="{{path('app_home')}}">Accueil</a></li>
+                <li><a href="{{path('app_products')}}">Produits</a></li>
+                <li><a href="{{ path('app_account') }}">Compte</a></li>
+                <li><a href="{{ path('app_cart') }}">Panier</a></li>
+        </ul>
+            <div class="footer-copyright">
+                <p>Copyright @ 2022 All Rights Reserved.</p>
+            </div>
+    </footer>
 
-             Rejoind la communotée Youtube pour avoir les derniere video des Tim .
-        </a>
-
-        <a href="www.github.com">
-            <img with="70%" src="{{ asset('assets/img/githubfooter.png') }}" alt="githubfooter">
-        
-            Rejoind la communotée GitHub pour cree ou ades les Tim dans leur devellopment.
-        </a>
-
-
-        <a href="www.discord.com">
-            <img with="70%" src="{{ asset('assets/img/discordfooter.png') }}" alt="discord">
-            Rejoind la communotée Discord des Tim.
-        </a>
-
-    </div>
-</nav>
 
 

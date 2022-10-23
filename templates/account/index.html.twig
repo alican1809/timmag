@@ -4,36 +4,35 @@
 {% block title %}Tim Store - Mon Compte
 {% endblock %}
 {% block body %}
-	<h1 class="h1">Compte {{app.user.firstname}}
+	<h1 class="h1">Votre Collection
+		<br>{{app.user.firstname}}
 		{{app.user.lastname}}</h1>
-    <div class="accountBtnContent">
-	    <a class="btn navLink" href="{{ path('app_account_change_info') }}">Inforamtion</a>
-	    <a class="btn navLink" href="{{ path('app_account') }}">Collection</a>
-	    <a class="btn navLink" href="{{ path('app_logout') }}">Deconnexion</a></div>
+	<div class="accountBtnContent">
+		<a class="btn navLink" href="{{ path('app_account_change_info') }}">Vos Informations</a>
+		<a class="btn navLink" href="{{ path('app_account') }}">Votre Collection</a>
+		<a class="btn navLink" href="{{ path('app_logout') }}">Deconnexion</a>
+	</div>
 	<div class="space"></div>
 	<div class="homeContent4">
 
-		<h2 class="homeH2 btn">La Parade de Vos Tim</h2>
-
+		<h2 class="homeH2 btn">La Parade de Vos Tims</h2>
 		<div class="animTimFly"></div>
-
-
 	</div>
 	<div class="space"></div>
 	<div class="homeContent3">
-		
-		<h2 class="homeH2 btn">Vos Cartes tim</h2>
-		
-		<p class="textSearch ">Rechercher vos Tim dans la barre de recherche:</p>
-		<input  type="text" autocomplete="off" placeholder="Recherche." id="searchInput" >
-		
-	<div class="space"></div>	
+
+		<h2 class="homeH2 btn">Vos Cartes Tims</h2>
+
+		<p class="textSearch ">Rechercher un Tim ou plusieurs dans la barre de recherche :</p>
+		<input type="text" autocomplete="off" placeholder="Recherche." id="searchInput">
+
+		<div class="space"></div>
 		<div class="prodDashboard">
 			{% for product in collection %}
 				<div class="product ">
 					<div class="prodImg " width="100%">
 						<a class="aherfTim" width="100%" href="{{ path('app_product' , {'slug' : product.slug }) }}">
-							<img class="imgTim" width="100%" src="/uploads/{{product.illustration}}" alt="product.name">
+							<img class="imgTim" width="100%" src="/uploads/{{product.illustration}}" alt="{{product.name}}">
 						</a>
 					</div>
 					<div class="prodText">
@@ -43,19 +42,17 @@
 						<div class="prodSubtitle troc">{{product.subtitle}}</div>
 						<div class="prodBlock">
 							<div class="addBtn btn">
-								<a class="btn" href="">Joué</a>
+								<a class="btn" href="">Jouer</a>
 							</div>
-							<div class="prodPrice">n°{{ (product.id )}}</div>
+							<div class="prodPrice">n°{{ (product.id) }}</div>
 						</div>
-
 					</div>
 					<div class="hidden">{{product.category.id}}</div>
 				</div>
-				
+
 			{% endfor %}
 		</div>
 	</div>
-
 
 
 {% endblock %}

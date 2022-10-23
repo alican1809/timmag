@@ -1,21 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tim Store - vente de colection
+{% block title %}TimMag - Vente de collection
 {% endblock %}
 
 {% block body %}
 
 	<div class="homeContent1">
-<div class=" homeTime display-time"></div>
+		<div class=" homeTime display-time"></div>
 		<div class="homeText">
-			
-
-
-			
 			<div id="homeSubText">
 				Site d'achat de
 				<span class="homeSubTextSpan">TIM</span>
-				à collectionné
+				à collectionner
 			</div><div class="homeTimNbr">300 000
 				<span id="homeSubText"><span class="homeSubTextSpan">TIM</span> à venir
 				</span>
@@ -43,13 +39,13 @@
 	<div class="space"></div>
 
 	<div class="homeContent3">
-		<div class="homeH2 btn">Tim le plus rare	</div>
+		<div class="homeH2 btn">Tim le plus rare</div>
 	
 		<div class="homeTopTim">
-		<div class="context">Le tim universel est presenter ici.</div>
+		<div class="context">Le tim universel est présenté ici.</div>
 			<div class="homeTopProduct1 product">
 				<div class="prodImg" width="100%">
-					<a width="100%" href="{{ path('app_product' , {'slug' : product1.slug }) }}"><img width="100%" height="250px" src="/uploads/{{product1.illustration}}" alt="product.name"></a>
+					<a width="100%" href="{{ path('app_product' , {'slug' : product1.slug }) }}"><img width="100%" height="250px" src="/uploads/{{product1.illustration}}" alt="{{product1.name}}"></a>
 				</div>
 				<div class=" homeProdtext prodText">
 					<div class=" prodName">
@@ -70,7 +66,7 @@
 					<div class="product ">
 						<div class="prodImg " width="100%">
 							<a class="aherfTim" width="100%" href="{{ path('app_product' , {'slug' : product.slug }) }}">
-								<img class="imgTim" width="100%" src="/uploads/{{product.illustration}}" alt="product.name">
+								<img class="imgTim" width="100%" src="/uploads/{{product.illustration}}" alt="{{product1.name}}">
 							</a>
 						</div>
 						<div class="prodText">
@@ -96,13 +92,13 @@
 	<div class="space"></div>
 	<div class="homeContent4">
 
-		<h2 class="homeH2 btn">Produit Tim</h2>
+		<h2 class="homeH2 btn">Produits Tim</h2>
 
-		<div class="context">La parade des tims en vente</div>
+		<div class="context">La parade des Tims en vente</div>
 
 		<div class="animTimFly"></div>
 		
-		<p class="context">Vous pouvez selectionné le tim qui vous convient,pour avoir acces au information detailé de chaque tim.</p>
+		<p class="context">Vous pouvez sélectionner le Tim qui vous convient, pour avoir accès aux informations en détail de chaque Tim.</p>
 	</div>
 
 {% endblock %}
