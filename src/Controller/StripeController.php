@@ -36,8 +36,7 @@ class StripeController extends AbstractController
 
         $product_for_stripe=[];
 
-        // $YOUR_DOMAIN = 'https://timmag.herokuapp.com';
-        $YOUR_DOMAIN = 'http://localhost:8000';
+        $YOUR_DOMAIN = 'https://timmag.herokuapp.com';
 
         $order=$entityManager->getRepository(Order::class)->findOneByReference($reference);
       
@@ -81,38 +80,6 @@ class StripeController extends AbstractController
         $response = new JsonResponse(['id' => $checkout_session->id]);
         return $response;
     }
-
-
-    // #[Route('/success', name: 'app_success')]
-    // public function success( $reponse): Response
-
-    // {
-
-    //     $reponse;
-    //     dd($reponse);
-    //      if(!$order){
-    //       $user=$this-> getUser();
-    //       $mail = new Mail();
-    //       $content = "Bonjour ".$user->getFirstname()."<br/>Timland<br>Vous remerci de vorte achat <br/>Vous avez de nouveaux Tim dans votre Collecetion  dans Mon Compte Sur le site  www.timmag.herokuapp.com  <br/>?";
-    //       $mail->send($user->getEmail(), $user->getFirstname(), 'Achat TimMag', $content);}
-    //     $us="e";
-
-    //  return $this->render('stripe/success.html.twig',[
-    //     "oks"=>$us
-    //  ]);
-    // }
-
-    // #[Route('/cancel', name: 'app_cancel')]
-    // public function cancel( ): Response
-
-    // {
- 
-        
-
-    //  return $this->render('stripe/cancel.html.twig',[
-        
-    //  ]);
-    // }
 
    
 }
