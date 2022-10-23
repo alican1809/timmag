@@ -17,8 +17,8 @@ class Mail
             'Messages' => [
                 [
                     'From' => [
-                        'Email' => "app278314230@heroku.com",
-                        'Name' => "Tim"
+                        'Email' => "timstore1809@gmail.com",
+                        'Name' => "tim"
                     ],
                     'To' => [
                         [
