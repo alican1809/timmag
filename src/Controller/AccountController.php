@@ -20,7 +20,6 @@ class AccountController extends AbstractController
 
         $myOrders = $orderRepository->findAll();
         $myOrderDetails = $orderDetailsRepository->findAll();
-
         $product = $productRepository->findAll();
 
         $myProducts = array();
