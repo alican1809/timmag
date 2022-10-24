@@ -1,25 +1,32 @@
 <nav class="navbar">
-	<a href="{{ path('app_home') }}"><img class="navLogo" src="{{ asset('assets/img/nav_logo.svg') }}" alt="Logo Accueil"><div class='btn navlogobtn navLink'>Accueil</div>
-	</a>
-
-	<a class="btn navLink" href="{{ path('app_products') }}">Produits</a>
+	<label class="mIcon" for="btnMenu">
+			<img class="  menunavlogo" src="{{ asset('assets/img/nav_logo.svg') }}" alt="Logo Accueil"><div class='btn navlogobtn  navLink'>Menu</div>
+		
+	</label>
+	<input type="checkbox" name="btnMenu" id="btnMenu">
 
 	{% if app.user %}
+		<a class="page" href="{{ path('app_home') }}"><img class="  navLogo" src="{{ asset('assets/img/nav_logo.svg') }}" alt="Logo Accueil"><div class='btn navlogobtn navLink'>Accueil</div>
+		</a>
+		
+			<a class=" page btn navLink" href="{{ path('app_products') }}">Produits</a>
+			{% if is_granted("ROLE_ADMIN") %}
+				<a class=" page btn navLink " href="{{ path('admin') }}">Espace Admin</a>
+			{% endif %}
+			<a class=" page btn navLink " href="{{ path('app_cart') }}">Panier</a>
+		
+		<a class="page" href="{{ path('app_account') }}">
+			<img class="navLogo" src="{{ asset('assets/img/nav_logo_compte.svg') }}" alt=""><div class=' btn navlogobtn navlogobtnB navLink'>Compte</div>
+		</a>
+	{% else %}
+				<a class="page" href="{{ path('app_home') }}"><img class="  navLogo" src="{{ asset('assets/img/nav_logo.svg') }}" alt="Logo Accueil"><div class='btn navlogobtn navLink'>Accueil</div>
+		</a>
+			<a class=" page btn navLink" href="{{ path('app_products') }}">Produits</a>
+			<a class=" page btn navLink " href="{{ path('app_register') }}">Inscription</a>
+			<a class=" page btn navLink " href="{{ path('app_login') }}">Connexion</a>
+			<a class=" page btn navLink " href="{{ path('app_cart') }}">Panier</a>
+		
 
-		{% if is_granted("ROLE_ADMIN") %}
-			<a class="btn navLink " href="{{ path('admin') }}">Espace Admin</a>
-		{% endif %}
-		<a class="btn navLink " href="{{ path('app_cart') }}">Panier</a>
-	</div>
-	<a href="{{ path('app_account') }}">
-		<img class="navLogo" src="{{ asset('assets/img/nav_logo_compte.svg') }}" alt=""><div class='btn navlogobtn navLink'>Compte</div>
-	</a>
-
-
-{% else %}
-
-	<a class="btn navLink " href="{{ path('app_register') }}">Inscription</a>
-	<a class="btn navLink " href="{{ path('app_login') }}">Connexion</a>
-	<a class="btn navLink " href="{{ path('app_cart') }}">Panier</a>
-
-{% endif %}</nav><div class="navMarg"></div>
+	{% endif %}
+</nav>
+<div class="navMarg"></div>
